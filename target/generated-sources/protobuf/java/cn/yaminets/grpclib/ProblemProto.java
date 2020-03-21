@@ -33,9 +33,9 @@ public final class ProblemProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rproblem.proto\022\007problem\"=\n\016ProblemReque" +
-      "st\022\013\n\003pid\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\017\n\007conten" +
-      "t\030\003 \001(\t\"\035\n\014ProblemReply\022\r\n\005limit\030\001 \001(\0032I" +
+      "\n\rproblem.proto\022\007problem\"\037\n\016ProblemReque" +
+      "st\022\r\n\005limit\030\001 \001(\003\";\n\014ProblemReply\022\013\n\003pid" +
+      "\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\017\n\007content\030\003 \001(\t2I" +
       "\n\007Problem\022>\n\nGetProblem\022\027.problem.Proble" +
       "mRequest\032\025.problem.ProblemReply\"\000B,\n\023cn." +
       "yaminets.grpclibB\014ProblemProtoP\001\242\002\004yamib" +
@@ -50,13 +50,13 @@ public final class ProblemProto {
     internal_static_problem_ProblemRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_problem_ProblemRequest_descriptor,
-        new java.lang.String[] { "Pid", "Title", "Content", });
+        new java.lang.String[] { "Limit", });
     internal_static_problem_ProblemReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_problem_ProblemReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_problem_ProblemReply_descriptor,
-        new java.lang.String[] { "Limit", });
+        new java.lang.String[] { "Pid", "Title", "Content", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

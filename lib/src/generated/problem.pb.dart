@@ -12,9 +12,7 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 class ProblemRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ProblemRequest', package: const $pb.PackageName('problem'), createEmptyInstance: create)
-    ..aOS(1, 'pid')
-    ..aOS(2, 'title')
-    ..aOS(3, 'content')
+    ..aInt64(1, 'limit')
     ..hasRequiredFields = false
   ;
 
@@ -32,6 +30,39 @@ class ProblemRequest extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ProblemRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ProblemRequest>(create);
   static ProblemRequest _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get limit => $_getI64(0);
+  @$pb.TagNumber(1)
+  set limit($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasLimit() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearLimit() => clearField(1);
+}
+
+class ProblemReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ProblemReply', package: const $pb.PackageName('problem'), createEmptyInstance: create)
+    ..aOS(1, 'pid')
+    ..aOS(2, 'title')
+    ..aOS(3, 'content')
+    ..hasRequiredFields = false
+  ;
+
+  ProblemReply._() : super();
+  factory ProblemReply() => create();
+  factory ProblemReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ProblemReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  ProblemReply clone() => ProblemReply()..mergeFromMessage(this);
+  ProblemReply copyWith(void Function(ProblemReply) updates) => super.copyWith((message) => updates(message as ProblemReply));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ProblemReply create() => ProblemReply._();
+  ProblemReply createEmptyInstance() => create();
+  static $pb.PbList<ProblemReply> createRepeated() => $pb.PbList<ProblemReply>();
+  @$core.pragma('dart2js:noInline')
+  static ProblemReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ProblemReply>(create);
+  static ProblemReply _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get pid => $_getSZ(0);
@@ -59,36 +90,5 @@ class ProblemRequest extends $pb.GeneratedMessage {
   $core.bool hasContent() => $_has(2);
   @$pb.TagNumber(3)
   void clearContent() => clearField(3);
-}
-
-class ProblemReply extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('ProblemReply', package: const $pb.PackageName('problem'), createEmptyInstance: create)
-    ..aInt64(1, 'limit')
-    ..hasRequiredFields = false
-  ;
-
-  ProblemReply._() : super();
-  factory ProblemReply() => create();
-  factory ProblemReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ProblemReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  ProblemReply clone() => ProblemReply()..mergeFromMessage(this);
-  ProblemReply copyWith(void Function(ProblemReply) updates) => super.copyWith((message) => updates(message as ProblemReply));
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static ProblemReply create() => ProblemReply._();
-  ProblemReply createEmptyInstance() => create();
-  static $pb.PbList<ProblemReply> createRepeated() => $pb.PbList<ProblemReply>();
-  @$core.pragma('dart2js:noInline')
-  static ProblemReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ProblemReply>(create);
-  static ProblemReply _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $fixnum.Int64 get limit => $_getI64(0);
-  @$pb.TagNumber(1)
-  set limit($fixnum.Int64 v) { $_setInt64(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasLimit() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearLimit() => clearField(1);
 }
 

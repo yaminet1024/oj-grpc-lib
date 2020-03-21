@@ -16,6 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ProblemReply() {
+    pid_ = "";
+    title_ = "";
+    content_ = "";
   }
 
   @java.lang.Override
@@ -48,9 +51,22 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            limit_ = input.readInt64();
+            pid_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            title_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            content_ = s;
             break;
           }
           default: {
@@ -85,14 +101,112 @@ private static final long serialVersionUID = 0L;
             cn.yaminets.grpclib.ProblemReply.class, cn.yaminets.grpclib.ProblemReply.Builder.class);
   }
 
-  public static final int LIMIT_FIELD_NUMBER = 1;
-  private long limit_;
+  public static final int PID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object pid_;
   /**
-   * <code>int64 limit = 1;</code>
-   * @return The limit.
+   * <code>string pid = 1;</code>
+   * @return The pid.
    */
-  public long getLimit() {
-    return limit_;
+  public java.lang.String getPid() {
+    java.lang.Object ref = pid_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      pid_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string pid = 1;</code>
+   * @return The bytes for pid.
+   */
+  public com.google.protobuf.ByteString
+      getPidBytes() {
+    java.lang.Object ref = pid_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      pid_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TITLE_FIELD_NUMBER = 2;
+  private volatile java.lang.Object title_;
+  /**
+   * <code>string title = 2;</code>
+   * @return The title.
+   */
+  public java.lang.String getTitle() {
+    java.lang.Object ref = title_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      title_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string title = 2;</code>
+   * @return The bytes for title.
+   */
+  public com.google.protobuf.ByteString
+      getTitleBytes() {
+    java.lang.Object ref = title_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      title_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CONTENT_FIELD_NUMBER = 3;
+  private volatile java.lang.Object content_;
+  /**
+   * <code>string content = 3;</code>
+   * @return The content.
+   */
+  public java.lang.String getContent() {
+    java.lang.Object ref = content_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      content_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string content = 3;</code>
+   * @return The bytes for content.
+   */
+  public com.google.protobuf.ByteString
+      getContentBytes() {
+    java.lang.Object ref = content_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      content_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -109,8 +223,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (limit_ != 0L) {
-      output.writeInt64(1, limit_);
+    if (!getPidBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pid_);
+    }
+    if (!getTitleBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, title_);
+    }
+    if (!getContentBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
     }
     unknownFields.writeTo(output);
   }
@@ -121,9 +241,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (limit_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, limit_);
+    if (!getPidBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pid_);
+    }
+    if (!getTitleBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, title_);
+    }
+    if (!getContentBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -140,8 +265,12 @@ private static final long serialVersionUID = 0L;
     }
     cn.yaminets.grpclib.ProblemReply other = (cn.yaminets.grpclib.ProblemReply) obj;
 
-    if (getLimit()
-        != other.getLimit()) return false;
+    if (!getPid()
+        .equals(other.getPid())) return false;
+    if (!getTitle()
+        .equals(other.getTitle())) return false;
+    if (!getContent()
+        .equals(other.getContent())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -153,9 +282,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLimit());
+    hash = (37 * hash) + PID_FIELD_NUMBER;
+    hash = (53 * hash) + getPid().hashCode();
+    hash = (37 * hash) + TITLE_FIELD_NUMBER;
+    hash = (53 * hash) + getTitle().hashCode();
+    hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+    hash = (53 * hash) + getContent().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -289,7 +421,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      limit_ = 0L;
+      pid_ = "";
+
+      title_ = "";
+
+      content_ = "";
 
       return this;
     }
@@ -317,7 +453,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public cn.yaminets.grpclib.ProblemReply buildPartial() {
       cn.yaminets.grpclib.ProblemReply result = new cn.yaminets.grpclib.ProblemReply(this);
-      result.limit_ = limit_;
+      result.pid_ = pid_;
+      result.title_ = title_;
+      result.content_ = content_;
       onBuilt();
       return result;
     }
@@ -366,8 +504,17 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(cn.yaminets.grpclib.ProblemReply other) {
       if (other == cn.yaminets.grpclib.ProblemReply.getDefaultInstance()) return this;
-      if (other.getLimit() != 0L) {
-        setLimit(other.getLimit());
+      if (!other.getPid().isEmpty()) {
+        pid_ = other.pid_;
+        onChanged();
+      }
+      if (!other.getTitle().isEmpty()) {
+        title_ = other.title_;
+        onChanged();
+      }
+      if (!other.getContent().isEmpty()) {
+        content_ = other.content_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -398,32 +545,230 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long limit_ ;
+    private java.lang.Object pid_ = "";
     /**
-     * <code>int64 limit = 1;</code>
-     * @return The limit.
+     * <code>string pid = 1;</code>
+     * @return The pid.
      */
-    public long getLimit() {
-      return limit_;
+    public java.lang.String getPid() {
+      java.lang.Object ref = pid_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pid_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int64 limit = 1;</code>
-     * @param value The limit to set.
+     * <code>string pid = 1;</code>
+     * @return The bytes for pid.
+     */
+    public com.google.protobuf.ByteString
+        getPidBytes() {
+      java.lang.Object ref = pid_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string pid = 1;</code>
+     * @param value The pid to set.
      * @return This builder for chaining.
      */
-    public Builder setLimit(long value) {
-      
-      limit_ = value;
+    public Builder setPid(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      pid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 limit = 1;</code>
+     * <code>string pid = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearLimit() {
+    public Builder clearPid() {
       
-      limit_ = 0L;
+      pid_ = getDefaultInstance().getPid();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string pid = 1;</code>
+     * @param value The bytes for pid to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPidBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      pid_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object title_ = "";
+    /**
+     * <code>string title = 2;</code>
+     * @return The title.
+     */
+    public java.lang.String getTitle() {
+      java.lang.Object ref = title_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        title_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string title = 2;</code>
+     * @return The bytes for title.
+     */
+    public com.google.protobuf.ByteString
+        getTitleBytes() {
+      java.lang.Object ref = title_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        title_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string title = 2;</code>
+     * @param value The title to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTitle(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      title_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string title = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTitle() {
+      
+      title_ = getDefaultInstance().getTitle();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string title = 2;</code>
+     * @param value The bytes for title to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTitleBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      title_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object content_ = "";
+    /**
+     * <code>string content = 3;</code>
+     * @return The content.
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @return The bytes for content.
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @param value The content to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContent(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      content_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearContent() {
+      
+      content_ = getDefaultInstance().getContent();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @param value The bytes for content to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContentBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      content_ = value;
       onChanged();
       return this;
     }
