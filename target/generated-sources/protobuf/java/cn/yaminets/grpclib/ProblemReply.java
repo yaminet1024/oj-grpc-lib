@@ -16,9 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ProblemReply() {
-    pid_ = "";
-    title_ = "";
-    content_ = "";
+    problemList_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -41,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -52,21 +51,25 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            cn.yaminets.grpclib.ResultMessage.Builder subBuilder = null;
+            if (resultMessage_ != null) {
+              subBuilder = resultMessage_.toBuilder();
+            }
+            resultMessage_ = input.readMessage(cn.yaminets.grpclib.ResultMessage.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(resultMessage_);
+              resultMessage_ = subBuilder.buildPartial();
+            }
 
-            pid_ = s;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            content_ = s;
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              problemList_ = new java.util.ArrayList<cn.yaminets.grpclib.ProblemEntity>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            problemList_.add(
+                input.readMessage(cn.yaminets.grpclib.ProblemEntity.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -84,6 +87,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        problemList_ = java.util.Collections.unmodifiableList(problemList_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -101,112 +107,62 @@ private static final long serialVersionUID = 0L;
             cn.yaminets.grpclib.ProblemReply.class, cn.yaminets.grpclib.ProblemReply.Builder.class);
   }
 
-  public static final int PID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object pid_;
+  public static final int RESULTMESSAGE_FIELD_NUMBER = 1;
+  private cn.yaminets.grpclib.ResultMessage resultMessage_;
   /**
-   * <code>string pid = 1;</code>
-   * @return The pid.
+   * <code>.problem.ResultMessage resultMessage = 1;</code>
+   * @return Whether the resultMessage field is set.
    */
-  public java.lang.String getPid() {
-    java.lang.Object ref = pid_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      pid_ = s;
-      return s;
-    }
+  public boolean hasResultMessage() {
+    return resultMessage_ != null;
   }
   /**
-   * <code>string pid = 1;</code>
-   * @return The bytes for pid.
+   * <code>.problem.ResultMessage resultMessage = 1;</code>
+   * @return The resultMessage.
    */
-  public com.google.protobuf.ByteString
-      getPidBytes() {
-    java.lang.Object ref = pid_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      pid_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public cn.yaminets.grpclib.ResultMessage getResultMessage() {
+    return resultMessage_ == null ? cn.yaminets.grpclib.ResultMessage.getDefaultInstance() : resultMessage_;
+  }
+  /**
+   * <code>.problem.ResultMessage resultMessage = 1;</code>
+   */
+  public cn.yaminets.grpclib.ResultMessageOrBuilder getResultMessageOrBuilder() {
+    return getResultMessage();
   }
 
-  public static final int TITLE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object title_;
+  public static final int PROBLEMLIST_FIELD_NUMBER = 2;
+  private java.util.List<cn.yaminets.grpclib.ProblemEntity> problemList_;
   /**
-   * <code>string title = 2;</code>
-   * @return The title.
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
    */
-  public java.lang.String getTitle() {
-    java.lang.Object ref = title_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      title_ = s;
-      return s;
-    }
+  public java.util.List<cn.yaminets.grpclib.ProblemEntity> getProblemListList() {
+    return problemList_;
   }
   /**
-   * <code>string title = 2;</code>
-   * @return The bytes for title.
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
    */
-  public com.google.protobuf.ByteString
-      getTitleBytes() {
-    java.lang.Object ref = title_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      title_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CONTENT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object content_;
-  /**
-   * <code>string content = 3;</code>
-   * @return The content.
-   */
-  public java.lang.String getContent() {
-    java.lang.Object ref = content_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      content_ = s;
-      return s;
-    }
+  public java.util.List<? extends cn.yaminets.grpclib.ProblemEntityOrBuilder> 
+      getProblemListOrBuilderList() {
+    return problemList_;
   }
   /**
-   * <code>string content = 3;</code>
-   * @return The bytes for content.
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
    */
-  public com.google.protobuf.ByteString
-      getContentBytes() {
-    java.lang.Object ref = content_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      content_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getProblemListCount() {
+    return problemList_.size();
+  }
+  /**
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+   */
+  public cn.yaminets.grpclib.ProblemEntity getProblemList(int index) {
+    return problemList_.get(index);
+  }
+  /**
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+   */
+  public cn.yaminets.grpclib.ProblemEntityOrBuilder getProblemListOrBuilder(
+      int index) {
+    return problemList_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -223,14 +179,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getPidBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pid_);
+    if (resultMessage_ != null) {
+      output.writeMessage(1, getResultMessage());
     }
-    if (!getTitleBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, title_);
-    }
-    if (!getContentBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
+    for (int i = 0; i < problemList_.size(); i++) {
+      output.writeMessage(2, problemList_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -241,14 +194,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getPidBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pid_);
+    if (resultMessage_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getResultMessage());
     }
-    if (!getTitleBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, title_);
-    }
-    if (!getContentBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
+    for (int i = 0; i < problemList_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, problemList_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -265,12 +217,13 @@ private static final long serialVersionUID = 0L;
     }
     cn.yaminets.grpclib.ProblemReply other = (cn.yaminets.grpclib.ProblemReply) obj;
 
-    if (!getPid()
-        .equals(other.getPid())) return false;
-    if (!getTitle()
-        .equals(other.getTitle())) return false;
-    if (!getContent()
-        .equals(other.getContent())) return false;
+    if (hasResultMessage() != other.hasResultMessage()) return false;
+    if (hasResultMessage()) {
+      if (!getResultMessage()
+          .equals(other.getResultMessage())) return false;
+    }
+    if (!getProblemListList()
+        .equals(other.getProblemListList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -282,12 +235,14 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PID_FIELD_NUMBER;
-    hash = (53 * hash) + getPid().hashCode();
-    hash = (37 * hash) + TITLE_FIELD_NUMBER;
-    hash = (53 * hash) + getTitle().hashCode();
-    hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-    hash = (53 * hash) + getContent().hashCode();
+    if (hasResultMessage()) {
+      hash = (37 * hash) + RESULTMESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getResultMessage().hashCode();
+    }
+    if (getProblemListCount() > 0) {
+      hash = (37 * hash) + PROBLEMLIST_FIELD_NUMBER;
+      hash = (53 * hash) + getProblemListList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -416,17 +371,24 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getProblemListFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      pid_ = "";
-
-      title_ = "";
-
-      content_ = "";
-
+      if (resultMessageBuilder_ == null) {
+        resultMessage_ = null;
+      } else {
+        resultMessage_ = null;
+        resultMessageBuilder_ = null;
+      }
+      if (problemListBuilder_ == null) {
+        problemList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        problemListBuilder_.clear();
+      }
       return this;
     }
 
@@ -453,9 +415,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public cn.yaminets.grpclib.ProblemReply buildPartial() {
       cn.yaminets.grpclib.ProblemReply result = new cn.yaminets.grpclib.ProblemReply(this);
-      result.pid_ = pid_;
-      result.title_ = title_;
-      result.content_ = content_;
+      int from_bitField0_ = bitField0_;
+      if (resultMessageBuilder_ == null) {
+        result.resultMessage_ = resultMessage_;
+      } else {
+        result.resultMessage_ = resultMessageBuilder_.build();
+      }
+      if (problemListBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          problemList_ = java.util.Collections.unmodifiableList(problemList_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.problemList_ = problemList_;
+      } else {
+        result.problemList_ = problemListBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -504,17 +478,34 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(cn.yaminets.grpclib.ProblemReply other) {
       if (other == cn.yaminets.grpclib.ProblemReply.getDefaultInstance()) return this;
-      if (!other.getPid().isEmpty()) {
-        pid_ = other.pid_;
-        onChanged();
+      if (other.hasResultMessage()) {
+        mergeResultMessage(other.getResultMessage());
       }
-      if (!other.getTitle().isEmpty()) {
-        title_ = other.title_;
-        onChanged();
-      }
-      if (!other.getContent().isEmpty()) {
-        content_ = other.content_;
-        onChanged();
+      if (problemListBuilder_ == null) {
+        if (!other.problemList_.isEmpty()) {
+          if (problemList_.isEmpty()) {
+            problemList_ = other.problemList_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureProblemListIsMutable();
+            problemList_.addAll(other.problemList_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.problemList_.isEmpty()) {
+          if (problemListBuilder_.isEmpty()) {
+            problemListBuilder_.dispose();
+            problemListBuilder_ = null;
+            problemList_ = other.problemList_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            problemListBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getProblemListFieldBuilder() : null;
+          } else {
+            problemListBuilder_.addAllMessages(other.problemList_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -544,233 +535,365 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
-    private java.lang.Object pid_ = "";
+    private cn.yaminets.grpclib.ResultMessage resultMessage_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cn.yaminets.grpclib.ResultMessage, cn.yaminets.grpclib.ResultMessage.Builder, cn.yaminets.grpclib.ResultMessageOrBuilder> resultMessageBuilder_;
     /**
-     * <code>string pid = 1;</code>
-     * @return The pid.
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
+     * @return Whether the resultMessage field is set.
      */
-    public java.lang.String getPid() {
-      java.lang.Object ref = pid_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        pid_ = s;
-        return s;
+    public boolean hasResultMessage() {
+      return resultMessageBuilder_ != null || resultMessage_ != null;
+    }
+    /**
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
+     * @return The resultMessage.
+     */
+    public cn.yaminets.grpclib.ResultMessage getResultMessage() {
+      if (resultMessageBuilder_ == null) {
+        return resultMessage_ == null ? cn.yaminets.grpclib.ResultMessage.getDefaultInstance() : resultMessage_;
       } else {
-        return (java.lang.String) ref;
+        return resultMessageBuilder_.getMessage();
       }
     }
     /**
-     * <code>string pid = 1;</code>
-     * @return The bytes for pid.
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getPidBytes() {
-      java.lang.Object ref = pid_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        pid_ = b;
-        return b;
+    public Builder setResultMessage(cn.yaminets.grpclib.ResultMessage value) {
+      if (resultMessageBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        resultMessage_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        resultMessageBuilder_.setMessage(value);
       }
-    }
-    /**
-     * <code>string pid = 1;</code>
-     * @param value The pid to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPid(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      pid_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string pid = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPid() {
-      
-      pid_ = getDefaultInstance().getPid();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string pid = 1;</code>
-     * @param value The bytes for pid to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPidBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      pid_ = value;
-      onChanged();
-      return this;
-    }
 
-    private java.lang.Object title_ = "";
+      return this;
+    }
     /**
-     * <code>string title = 2;</code>
-     * @return The title.
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
      */
-    public java.lang.String getTitle() {
-      java.lang.Object ref = title_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        title_ = s;
-        return s;
+    public Builder setResultMessage(
+        cn.yaminets.grpclib.ResultMessage.Builder builderForValue) {
+      if (resultMessageBuilder_ == null) {
+        resultMessage_ = builderForValue.build();
+        onChanged();
       } else {
-        return (java.lang.String) ref;
+        resultMessageBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
+     */
+    public Builder mergeResultMessage(cn.yaminets.grpclib.ResultMessage value) {
+      if (resultMessageBuilder_ == null) {
+        if (resultMessage_ != null) {
+          resultMessage_ =
+            cn.yaminets.grpclib.ResultMessage.newBuilder(resultMessage_).mergeFrom(value).buildPartial();
+        } else {
+          resultMessage_ = value;
+        }
+        onChanged();
+      } else {
+        resultMessageBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
+     */
+    public Builder clearResultMessage() {
+      if (resultMessageBuilder_ == null) {
+        resultMessage_ = null;
+        onChanged();
+      } else {
+        resultMessage_ = null;
+        resultMessageBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
+     */
+    public cn.yaminets.grpclib.ResultMessage.Builder getResultMessageBuilder() {
+      
+      onChanged();
+      return getResultMessageFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
+     */
+    public cn.yaminets.grpclib.ResultMessageOrBuilder getResultMessageOrBuilder() {
+      if (resultMessageBuilder_ != null) {
+        return resultMessageBuilder_.getMessageOrBuilder();
+      } else {
+        return resultMessage_ == null ?
+            cn.yaminets.grpclib.ResultMessage.getDefaultInstance() : resultMessage_;
       }
     }
     /**
-     * <code>string title = 2;</code>
-     * @return The bytes for title.
+     * <code>.problem.ResultMessage resultMessage = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getTitleBytes() {
-      java.lang.Object ref = title_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        title_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cn.yaminets.grpclib.ResultMessage, cn.yaminets.grpclib.ResultMessage.Builder, cn.yaminets.grpclib.ResultMessageOrBuilder> 
+        getResultMessageFieldBuilder() {
+      if (resultMessageBuilder_ == null) {
+        resultMessageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            cn.yaminets.grpclib.ResultMessage, cn.yaminets.grpclib.ResultMessage.Builder, cn.yaminets.grpclib.ResultMessageOrBuilder>(
+                getResultMessage(),
+                getParentForChildren(),
+                isClean());
+        resultMessage_ = null;
       }
-    }
-    /**
-     * <code>string title = 2;</code>
-     * @param value The title to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTitle(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      title_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string title = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTitle() {
-      
-      title_ = getDefaultInstance().getTitle();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string title = 2;</code>
-     * @param value The bytes for title to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTitleBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      title_ = value;
-      onChanged();
-      return this;
+      return resultMessageBuilder_;
     }
 
-    private java.lang.Object content_ = "";
+    private java.util.List<cn.yaminets.grpclib.ProblemEntity> problemList_ =
+      java.util.Collections.emptyList();
+    private void ensureProblemListIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        problemList_ = new java.util.ArrayList<cn.yaminets.grpclib.ProblemEntity>(problemList_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cn.yaminets.grpclib.ProblemEntity, cn.yaminets.grpclib.ProblemEntity.Builder, cn.yaminets.grpclib.ProblemEntityOrBuilder> problemListBuilder_;
+
     /**
-     * <code>string content = 3;</code>
-     * @return The content.
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
      */
-    public java.lang.String getContent() {
-      java.lang.Object ref = content_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        content_ = s;
-        return s;
+    public java.util.List<cn.yaminets.grpclib.ProblemEntity> getProblemListList() {
+      if (problemListBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(problemList_);
       } else {
-        return (java.lang.String) ref;
+        return problemListBuilder_.getMessageList();
       }
     }
     /**
-     * <code>string content = 3;</code>
-     * @return The bytes for content.
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getContentBytes() {
-      java.lang.Object ref = content_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        content_ = b;
-        return b;
+    public int getProblemListCount() {
+      if (problemListBuilder_ == null) {
+        return problemList_.size();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return problemListBuilder_.getCount();
       }
     }
     /**
-     * <code>string content = 3;</code>
-     * @param value The content to set.
-     * @return This builder for chaining.
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
      */
-    public Builder setContent(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      content_ = value;
-      onChanged();
+    public cn.yaminets.grpclib.ProblemEntity getProblemList(int index) {
+      if (problemListBuilder_ == null) {
+        return problemList_.get(index);
+      } else {
+        return problemListBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public Builder setProblemList(
+        int index, cn.yaminets.grpclib.ProblemEntity value) {
+      if (problemListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureProblemListIsMutable();
+        problemList_.set(index, value);
+        onChanged();
+      } else {
+        problemListBuilder_.setMessage(index, value);
+      }
       return this;
     }
     /**
-     * <code>string content = 3;</code>
-     * @return This builder for chaining.
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
      */
-    public Builder clearContent() {
-      
-      content_ = getDefaultInstance().getContent();
-      onChanged();
+    public Builder setProblemList(
+        int index, cn.yaminets.grpclib.ProblemEntity.Builder builderForValue) {
+      if (problemListBuilder_ == null) {
+        ensureProblemListIsMutable();
+        problemList_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        problemListBuilder_.setMessage(index, builderForValue.build());
+      }
       return this;
     }
     /**
-     * <code>string content = 3;</code>
-     * @param value The bytes for content to set.
-     * @return This builder for chaining.
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
      */
-    public Builder setContentBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      content_ = value;
-      onChanged();
+    public Builder addProblemList(cn.yaminets.grpclib.ProblemEntity value) {
+      if (problemListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureProblemListIsMutable();
+        problemList_.add(value);
+        onChanged();
+      } else {
+        problemListBuilder_.addMessage(value);
+      }
       return this;
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public Builder addProblemList(
+        int index, cn.yaminets.grpclib.ProblemEntity value) {
+      if (problemListBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureProblemListIsMutable();
+        problemList_.add(index, value);
+        onChanged();
+      } else {
+        problemListBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public Builder addProblemList(
+        cn.yaminets.grpclib.ProblemEntity.Builder builderForValue) {
+      if (problemListBuilder_ == null) {
+        ensureProblemListIsMutable();
+        problemList_.add(builderForValue.build());
+        onChanged();
+      } else {
+        problemListBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public Builder addProblemList(
+        int index, cn.yaminets.grpclib.ProblemEntity.Builder builderForValue) {
+      if (problemListBuilder_ == null) {
+        ensureProblemListIsMutable();
+        problemList_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        problemListBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public Builder addAllProblemList(
+        java.lang.Iterable<? extends cn.yaminets.grpclib.ProblemEntity> values) {
+      if (problemListBuilder_ == null) {
+        ensureProblemListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, problemList_);
+        onChanged();
+      } else {
+        problemListBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public Builder clearProblemList() {
+      if (problemListBuilder_ == null) {
+        problemList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        problemListBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public Builder removeProblemList(int index) {
+      if (problemListBuilder_ == null) {
+        ensureProblemListIsMutable();
+        problemList_.remove(index);
+        onChanged();
+      } else {
+        problemListBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public cn.yaminets.grpclib.ProblemEntity.Builder getProblemListBuilder(
+        int index) {
+      return getProblemListFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public cn.yaminets.grpclib.ProblemEntityOrBuilder getProblemListOrBuilder(
+        int index) {
+      if (problemListBuilder_ == null) {
+        return problemList_.get(index);  } else {
+        return problemListBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public java.util.List<? extends cn.yaminets.grpclib.ProblemEntityOrBuilder> 
+         getProblemListOrBuilderList() {
+      if (problemListBuilder_ != null) {
+        return problemListBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(problemList_);
+      }
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public cn.yaminets.grpclib.ProblemEntity.Builder addProblemListBuilder() {
+      return getProblemListFieldBuilder().addBuilder(
+          cn.yaminets.grpclib.ProblemEntity.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public cn.yaminets.grpclib.ProblemEntity.Builder addProblemListBuilder(
+        int index) {
+      return getProblemListFieldBuilder().addBuilder(
+          index, cn.yaminets.grpclib.ProblemEntity.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+     */
+    public java.util.List<cn.yaminets.grpclib.ProblemEntity.Builder> 
+         getProblemListBuilderList() {
+      return getProblemListFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cn.yaminets.grpclib.ProblemEntity, cn.yaminets.grpclib.ProblemEntity.Builder, cn.yaminets.grpclib.ProblemEntityOrBuilder> 
+        getProblemListFieldBuilder() {
+      if (problemListBuilder_ == null) {
+        problemListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            cn.yaminets.grpclib.ProblemEntity, cn.yaminets.grpclib.ProblemEntity.Builder, cn.yaminets.grpclib.ProblemEntityOrBuilder>(
+                problemList_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        problemList_ = null;
+      }
+      return problemListBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

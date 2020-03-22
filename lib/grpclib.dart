@@ -7,7 +7,6 @@ export 'src/generated/problem.pb.dart';
 export 'src/generated/problem.pbenum.dart';
 export 'src/generated/problem.pbgrpc.dart';
 export 'src/generated/problem.pbjson.dart';
-
 /// A Calculator.
 class Calculator {
   /// Returns [value] plus 1.

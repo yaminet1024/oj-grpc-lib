@@ -7,17 +7,35 @@ option objc_class_prefix = "yami";
 
 package problem;
 
-service Problem {
+service ProblemService {
     rpc GetProblem (ProblemRequest) returns (ProblemReply) {};
 }
 
 message ProblemRequest{
-    int64 limit = 1;
+    int32 page = 1;
+    int32 limit = 2;
+}
+
+message ResultMessage{
+    int32 errCode = 1;
+    string message = 2;
 }
 
 
 message ProblemReply{
-    string pid = 1;
-    string title = 2;
-    string content = 3;
+    ResultMessage resultMessage = 1;
+    repeated ProblemEntity problemList = 2;
+}
+
+message ProblemEntity{
+    int64 id = 1;
+    string pid = 2;
+    string title = 3;
+    string content = 4;
+    repeated AnswerEntity answers = 5;
+}
+
+message AnswerEntity{
+    int64 id = 1;
+    string answerString = 2;
 }

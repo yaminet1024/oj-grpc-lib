@@ -4,25 +4,26 @@
 package cn.yaminets.grpclib;
 
 /**
- * Protobuf type {@code problem.ProblemRequest}
+ * Protobuf type {@code problem.ResultMessage}
  */
-public  final class ProblemRequest extends
+public  final class ResultMessage extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:problem.ProblemRequest)
-    ProblemRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:problem.ResultMessage)
+    ResultMessageOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ProblemRequest.newBuilder() to construct.
-  private ProblemRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ResultMessage.newBuilder() to construct.
+  private ResultMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ProblemRequest() {
+  private ResultMessage() {
+    message_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ProblemRequest();
+    return new ResultMessage();
   }
 
   @java.lang.Override
@@ -30,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProblemRequest(
+  private ResultMessage(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,12 +51,13 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            page_ = input.readInt32();
+            errCode_ = input.readInt32();
             break;
           }
-          case 16: {
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            limit_ = input.readInt32();
+            message_ = s;
             break;
           }
           default: {
@@ -79,35 +81,61 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ProblemRequest_descriptor;
+    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ResultMessage_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ProblemRequest_fieldAccessorTable
+    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ResultMessage_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            cn.yaminets.grpclib.ProblemRequest.class, cn.yaminets.grpclib.ProblemRequest.Builder.class);
+            cn.yaminets.grpclib.ResultMessage.class, cn.yaminets.grpclib.ResultMessage.Builder.class);
   }
 
-  public static final int PAGE_FIELD_NUMBER = 1;
-  private int page_;
+  public static final int ERRCODE_FIELD_NUMBER = 1;
+  private int errCode_;
   /**
-   * <code>int32 page = 1;</code>
-   * @return The page.
+   * <code>int32 errCode = 1;</code>
+   * @return The errCode.
    */
-  public int getPage() {
-    return page_;
+  public int getErrCode() {
+    return errCode_;
   }
 
-  public static final int LIMIT_FIELD_NUMBER = 2;
-  private int limit_;
+  public static final int MESSAGE_FIELD_NUMBER = 2;
+  private volatile java.lang.Object message_;
   /**
-   * <code>int32 limit = 2;</code>
-   * @return The limit.
+   * <code>string message = 2;</code>
+   * @return The message.
    */
-  public int getLimit() {
-    return limit_;
+  public java.lang.String getMessage() {
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      message_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string message = 2;</code>
+   * @return The bytes for message.
+   */
+  public com.google.protobuf.ByteString
+      getMessageBytes() {
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      message_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -124,11 +152,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (page_ != 0) {
-      output.writeInt32(1, page_);
+    if (errCode_ != 0) {
+      output.writeInt32(1, errCode_);
     }
-    if (limit_ != 0) {
-      output.writeInt32(2, limit_);
+    if (!getMessageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
     }
     unknownFields.writeTo(output);
   }
@@ -139,13 +167,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (page_ != 0) {
+    if (errCode_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, page_);
+        .computeInt32Size(1, errCode_);
     }
-    if (limit_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, limit_);
+    if (!getMessageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -157,15 +184,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof cn.yaminets.grpclib.ProblemRequest)) {
+    if (!(obj instanceof cn.yaminets.grpclib.ResultMessage)) {
       return super.equals(obj);
     }
-    cn.yaminets.grpclib.ProblemRequest other = (cn.yaminets.grpclib.ProblemRequest) obj;
+    cn.yaminets.grpclib.ResultMessage other = (cn.yaminets.grpclib.ResultMessage) obj;
 
-    if (getPage()
-        != other.getPage()) return false;
-    if (getLimit()
-        != other.getLimit()) return false;
+    if (getErrCode()
+        != other.getErrCode()) return false;
+    if (!getMessage()
+        .equals(other.getMessage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -177,78 +204,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getPage();
-    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
-    hash = (53 * hash) + getLimit();
+    hash = (37 * hash) + ERRCODE_FIELD_NUMBER;
+    hash = (53 * hash) + getErrCode();
+    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(byte[] data)
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(java.io.InputStream input)
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseDelimitedFrom(java.io.InputStream input)
+  public static cn.yaminets.grpclib.ResultMessage parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseDelimitedFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static cn.yaminets.grpclib.ProblemRequest parseFrom(
+  public static cn.yaminets.grpclib.ResultMessage parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -261,7 +288,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(cn.yaminets.grpclib.ProblemRequest prototype) {
+  public static Builder newBuilder(cn.yaminets.grpclib.ResultMessage prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -277,26 +304,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code problem.ProblemRequest}
+   * Protobuf type {@code problem.ResultMessage}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:problem.ProblemRequest)
-      cn.yaminets.grpclib.ProblemRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:problem.ResultMessage)
+      cn.yaminets.grpclib.ResultMessageOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ProblemRequest_descriptor;
+      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ResultMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ProblemRequest_fieldAccessorTable
+      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ResultMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              cn.yaminets.grpclib.ProblemRequest.class, cn.yaminets.grpclib.ProblemRequest.Builder.class);
+              cn.yaminets.grpclib.ResultMessage.class, cn.yaminets.grpclib.ResultMessage.Builder.class);
     }
 
-    // Construct using cn.yaminets.grpclib.ProblemRequest.newBuilder()
+    // Construct using cn.yaminets.grpclib.ResultMessage.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -314,9 +341,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      page_ = 0;
+      errCode_ = 0;
 
-      limit_ = 0;
+      message_ = "";
 
       return this;
     }
@@ -324,17 +351,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ProblemRequest_descriptor;
+      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_ResultMessage_descriptor;
     }
 
     @java.lang.Override
-    public cn.yaminets.grpclib.ProblemRequest getDefaultInstanceForType() {
-      return cn.yaminets.grpclib.ProblemRequest.getDefaultInstance();
+    public cn.yaminets.grpclib.ResultMessage getDefaultInstanceForType() {
+      return cn.yaminets.grpclib.ResultMessage.getDefaultInstance();
     }
 
     @java.lang.Override
-    public cn.yaminets.grpclib.ProblemRequest build() {
-      cn.yaminets.grpclib.ProblemRequest result = buildPartial();
+    public cn.yaminets.grpclib.ResultMessage build() {
+      cn.yaminets.grpclib.ResultMessage result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -342,10 +369,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public cn.yaminets.grpclib.ProblemRequest buildPartial() {
-      cn.yaminets.grpclib.ProblemRequest result = new cn.yaminets.grpclib.ProblemRequest(this);
-      result.page_ = page_;
-      result.limit_ = limit_;
+    public cn.yaminets.grpclib.ResultMessage buildPartial() {
+      cn.yaminets.grpclib.ResultMessage result = new cn.yaminets.grpclib.ResultMessage(this);
+      result.errCode_ = errCode_;
+      result.message_ = message_;
       onBuilt();
       return result;
     }
@@ -384,21 +411,22 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof cn.yaminets.grpclib.ProblemRequest) {
-        return mergeFrom((cn.yaminets.grpclib.ProblemRequest)other);
+      if (other instanceof cn.yaminets.grpclib.ResultMessage) {
+        return mergeFrom((cn.yaminets.grpclib.ResultMessage)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(cn.yaminets.grpclib.ProblemRequest other) {
-      if (other == cn.yaminets.grpclib.ProblemRequest.getDefaultInstance()) return this;
-      if (other.getPage() != 0) {
-        setPage(other.getPage());
+    public Builder mergeFrom(cn.yaminets.grpclib.ResultMessage other) {
+      if (other == cn.yaminets.grpclib.ResultMessage.getDefaultInstance()) return this;
+      if (other.getErrCode() != 0) {
+        setErrCode(other.getErrCode());
       }
-      if (other.getLimit() != 0) {
-        setLimit(other.getLimit());
+      if (!other.getMessage().isEmpty()) {
+        message_ = other.message_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -415,11 +443,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      cn.yaminets.grpclib.ProblemRequest parsedMessage = null;
+      cn.yaminets.grpclib.ResultMessage parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (cn.yaminets.grpclib.ProblemRequest) e.getUnfinishedMessage();
+        parsedMessage = (cn.yaminets.grpclib.ResultMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -429,62 +457,108 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int page_ ;
+    private int errCode_ ;
     /**
-     * <code>int32 page = 1;</code>
-     * @return The page.
+     * <code>int32 errCode = 1;</code>
+     * @return The errCode.
      */
-    public int getPage() {
-      return page_;
+    public int getErrCode() {
+      return errCode_;
     }
     /**
-     * <code>int32 page = 1;</code>
-     * @param value The page to set.
+     * <code>int32 errCode = 1;</code>
+     * @param value The errCode to set.
      * @return This builder for chaining.
      */
-    public Builder setPage(int value) {
+    public Builder setErrCode(int value) {
       
-      page_ = value;
+      errCode_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 page = 1;</code>
+     * <code>int32 errCode = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearPage() {
+    public Builder clearErrCode() {
       
-      page_ = 0;
+      errCode_ = 0;
       onChanged();
       return this;
     }
 
-    private int limit_ ;
+    private java.lang.Object message_ = "";
     /**
-     * <code>int32 limit = 2;</code>
-     * @return The limit.
+     * <code>string message = 2;</code>
+     * @return The message.
      */
-    public int getLimit() {
-      return limit_;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 limit = 2;</code>
-     * @param value The limit to set.
+     * <code>string message = 2;</code>
+     * @return The bytes for message.
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string message = 2;</code>
+     * @param value The message to set.
      * @return This builder for chaining.
      */
-    public Builder setLimit(int value) {
-      
-      limit_ = value;
+    public Builder setMessage(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      message_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 limit = 2;</code>
+     * <code>string message = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearLimit() {
+    public Builder clearMessage() {
       
-      limit_ = 0;
+      message_ = getDefaultInstance().getMessage();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string message = 2;</code>
+     * @param value The bytes for message to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMessageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      message_ = value;
       onChanged();
       return this;
     }
@@ -501,41 +575,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:problem.ProblemRequest)
+    // @@protoc_insertion_point(builder_scope:problem.ResultMessage)
   }
 
-  // @@protoc_insertion_point(class_scope:problem.ProblemRequest)
-  private static final cn.yaminets.grpclib.ProblemRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:problem.ResultMessage)
+  private static final cn.yaminets.grpclib.ResultMessage DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new cn.yaminets.grpclib.ProblemRequest();
+    DEFAULT_INSTANCE = new cn.yaminets.grpclib.ResultMessage();
   }
 
-  public static cn.yaminets.grpclib.ProblemRequest getDefaultInstance() {
+  public static cn.yaminets.grpclib.ResultMessage getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ProblemRequest>
-      PARSER = new com.google.protobuf.AbstractParser<ProblemRequest>() {
+  private static final com.google.protobuf.Parser<ResultMessage>
+      PARSER = new com.google.protobuf.AbstractParser<ResultMessage>() {
     @java.lang.Override
-    public ProblemRequest parsePartialFrom(
+    public ResultMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProblemRequest(input, extensionRegistry);
+      return new ResultMessage(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ProblemRequest> parser() {
+  public static com.google.protobuf.Parser<ResultMessage> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ProblemRequest> getParserForType() {
+  public com.google.protobuf.Parser<ResultMessage> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public cn.yaminets.grpclib.ProblemRequest getDefaultInstanceForType() {
+  public cn.yaminets.grpclib.ResultMessage getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

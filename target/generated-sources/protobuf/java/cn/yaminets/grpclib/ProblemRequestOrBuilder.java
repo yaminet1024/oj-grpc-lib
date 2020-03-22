@@ -8,8 +8,14 @@ public interface ProblemRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 limit = 1;</code>
+   * <code>int32 page = 1;</code>
+   * @return The page.
+   */
+  int getPage();
+
+  /**
+   * <code>int32 limit = 2;</code>
    * @return The limit.
    */
-  long getLimit();
+  int getLimit();
 }

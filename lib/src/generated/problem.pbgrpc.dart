@@ -13,14 +13,14 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'problem.pb.dart' as $0;
 export 'problem.pb.dart';
 
-class ProblemClient extends $grpc.Client {
+class ProblemServiceClient extends $grpc.Client {
   static final _$getProblem =
       $grpc.ClientMethod<$0.ProblemRequest, $0.ProblemReply>(
-          '/problem.Problem/GetProblem',
+          '/problem.ProblemService/GetProblem',
           ($0.ProblemRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.ProblemReply.fromBuffer(value));
 
-  ProblemClient($grpc.ClientChannel channel, {$grpc.CallOptions options})
+  ProblemServiceClient($grpc.ClientChannel channel, {$grpc.CallOptions options})
       : super(channel, options: options);
 
   $grpc.ResponseFuture<$0.ProblemReply> getProblem($0.ProblemRequest request,
@@ -33,7 +33,7 @@ class ProblemClient extends $grpc.Client {
 }
 
 abstract class ProblemServiceBase extends $grpc.Service {
-  $core.String get $name => 'problem.Problem';
+  $core.String get $name => 'problem.ProblemService';
 
   ProblemServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.ProblemRequest, $0.ProblemReply>(

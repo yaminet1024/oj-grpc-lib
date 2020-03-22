@@ -8,38 +8,41 @@ public interface ProblemReplyOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string pid = 1;</code>
-   * @return The pid.
+   * <code>.problem.ResultMessage resultMessage = 1;</code>
+   * @return Whether the resultMessage field is set.
    */
-  java.lang.String getPid();
+  boolean hasResultMessage();
   /**
-   * <code>string pid = 1;</code>
-   * @return The bytes for pid.
+   * <code>.problem.ResultMessage resultMessage = 1;</code>
+   * @return The resultMessage.
    */
-  com.google.protobuf.ByteString
-      getPidBytes();
+  cn.yaminets.grpclib.ResultMessage getResultMessage();
+  /**
+   * <code>.problem.ResultMessage resultMessage = 1;</code>
+   */
+  cn.yaminets.grpclib.ResultMessageOrBuilder getResultMessageOrBuilder();
 
   /**
-   * <code>string title = 2;</code>
-   * @return The title.
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
    */
-  java.lang.String getTitle();
+  java.util.List<cn.yaminets.grpclib.ProblemEntity> 
+      getProblemListList();
   /**
-   * <code>string title = 2;</code>
-   * @return The bytes for title.
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
    */
-  com.google.protobuf.ByteString
-      getTitleBytes();
-
+  cn.yaminets.grpclib.ProblemEntity getProblemList(int index);
   /**
-   * <code>string content = 3;</code>
-   * @return The content.
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
    */
-  java.lang.String getContent();
+  int getProblemListCount();
   /**
-   * <code>string content = 3;</code>
-   * @return The bytes for content.
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
    */
-  com.google.protobuf.ByteString
-      getContentBytes();
+  java.util.List<? extends cn.yaminets.grpclib.ProblemEntityOrBuilder> 
+      getProblemListOrBuilderList();
+  /**
+   * <code>repeated .problem.ProblemEntity problemList = 2;</code>
+   */
+  cn.yaminets.grpclib.ProblemEntityOrBuilder getProblemListOrBuilder(
+      int index);
 }

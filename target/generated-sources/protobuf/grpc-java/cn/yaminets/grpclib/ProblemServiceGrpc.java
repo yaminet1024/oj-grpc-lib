@@ -20,11 +20,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.28.0)",
     comments = "Source: problem.proto")
-public final class ProblemGrpc {
+public final class ProblemServiceGrpc {
 
-  private ProblemGrpc() {}
+  private ProblemServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "problem.Problem";
+  public static final String SERVICE_NAME = "problem.ProblemService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<cn.yaminets.grpclib.ProblemRequest,
@@ -38,10 +38,10 @@ public final class ProblemGrpc {
   public static io.grpc.MethodDescriptor<cn.yaminets.grpclib.ProblemRequest,
       cn.yaminets.grpclib.ProblemReply> getGetProblemMethod() {
     io.grpc.MethodDescriptor<cn.yaminets.grpclib.ProblemRequest, cn.yaminets.grpclib.ProblemReply> getGetProblemMethod;
-    if ((getGetProblemMethod = ProblemGrpc.getGetProblemMethod) == null) {
-      synchronized (ProblemGrpc.class) {
-        if ((getGetProblemMethod = ProblemGrpc.getGetProblemMethod) == null) {
-          ProblemGrpc.getGetProblemMethod = getGetProblemMethod =
+    if ((getGetProblemMethod = ProblemServiceGrpc.getGetProblemMethod) == null) {
+      synchronized (ProblemServiceGrpc.class) {
+        if ((getGetProblemMethod = ProblemServiceGrpc.getGetProblemMethod) == null) {
+          ProblemServiceGrpc.getGetProblemMethod = getGetProblemMethod =
               io.grpc.MethodDescriptor.<cn.yaminets.grpclib.ProblemRequest, cn.yaminets.grpclib.ProblemReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetProblem"))
@@ -50,7 +50,7 @@ public final class ProblemGrpc {
                   cn.yaminets.grpclib.ProblemRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   cn.yaminets.grpclib.ProblemReply.getDefaultInstance()))
-              .setSchemaDescriptor(new ProblemMethodDescriptorSupplier("GetProblem"))
+              .setSchemaDescriptor(new ProblemServiceMethodDescriptorSupplier("GetProblem"))
               .build();
         }
       }
@@ -61,50 +61,50 @@ public final class ProblemGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static ProblemStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<ProblemStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<ProblemStub>() {
+  public static ProblemServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<ProblemServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<ProblemServiceStub>() {
         @java.lang.Override
-        public ProblemStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new ProblemStub(channel, callOptions);
+        public ProblemServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new ProblemServiceStub(channel, callOptions);
         }
       };
-    return ProblemStub.newStub(factory, channel);
+    return ProblemServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static ProblemBlockingStub newBlockingStub(
+  public static ProblemServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<ProblemBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<ProblemBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<ProblemServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<ProblemServiceBlockingStub>() {
         @java.lang.Override
-        public ProblemBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new ProblemBlockingStub(channel, callOptions);
+        public ProblemServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new ProblemServiceBlockingStub(channel, callOptions);
         }
       };
-    return ProblemBlockingStub.newStub(factory, channel);
+    return ProblemServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static ProblemFutureStub newFutureStub(
+  public static ProblemServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<ProblemFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<ProblemFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<ProblemServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<ProblemServiceFutureStub>() {
         @java.lang.Override
-        public ProblemFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new ProblemFutureStub(channel, callOptions);
+        public ProblemServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new ProblemServiceFutureStub(channel, callOptions);
         }
       };
-    return ProblemFutureStub.newStub(factory, channel);
+    return ProblemServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class ProblemImplBase implements io.grpc.BindableService {
+  public static abstract class ProblemServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -128,16 +128,16 @@ public final class ProblemGrpc {
 
   /**
    */
-  public static final class ProblemStub extends io.grpc.stub.AbstractAsyncStub<ProblemStub> {
-    private ProblemStub(
+  public static final class ProblemServiceStub extends io.grpc.stub.AbstractAsyncStub<ProblemServiceStub> {
+    private ProblemServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected ProblemStub build(
+    protected ProblemServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new ProblemStub(channel, callOptions);
+      return new ProblemServiceStub(channel, callOptions);
     }
 
     /**
@@ -151,16 +151,16 @@ public final class ProblemGrpc {
 
   /**
    */
-  public static final class ProblemBlockingStub extends io.grpc.stub.AbstractBlockingStub<ProblemBlockingStub> {
-    private ProblemBlockingStub(
+  public static final class ProblemServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<ProblemServiceBlockingStub> {
+    private ProblemServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected ProblemBlockingStub build(
+    protected ProblemServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new ProblemBlockingStub(channel, callOptions);
+      return new ProblemServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -173,16 +173,16 @@ public final class ProblemGrpc {
 
   /**
    */
-  public static final class ProblemFutureStub extends io.grpc.stub.AbstractFutureStub<ProblemFutureStub> {
-    private ProblemFutureStub(
+  public static final class ProblemServiceFutureStub extends io.grpc.stub.AbstractFutureStub<ProblemServiceFutureStub> {
+    private ProblemServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected ProblemFutureStub build(
+    protected ProblemServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new ProblemFutureStub(channel, callOptions);
+      return new ProblemServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -201,10 +201,10 @@ public final class ProblemGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final ProblemImplBase serviceImpl;
+    private final ProblemServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(ProblemImplBase serviceImpl, int methodId) {
+    MethodHandlers(ProblemServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -233,9 +233,9 @@ public final class ProblemGrpc {
     }
   }
 
-  private static abstract class ProblemBaseDescriptorSupplier
+  private static abstract class ProblemServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    ProblemBaseDescriptorSupplier() {}
+    ProblemServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -244,21 +244,21 @@ public final class ProblemGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("Problem");
+      return getFileDescriptor().findServiceByName("ProblemService");
     }
   }
 
-  private static final class ProblemFileDescriptorSupplier
-      extends ProblemBaseDescriptorSupplier {
-    ProblemFileDescriptorSupplier() {}
+  private static final class ProblemServiceFileDescriptorSupplier
+      extends ProblemServiceBaseDescriptorSupplier {
+    ProblemServiceFileDescriptorSupplier() {}
   }
 
-  private static final class ProblemMethodDescriptorSupplier
-      extends ProblemBaseDescriptorSupplier
+  private static final class ProblemServiceMethodDescriptorSupplier
+      extends ProblemServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    ProblemMethodDescriptorSupplier(String methodName) {
+    ProblemServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -273,11 +273,11 @@ public final class ProblemGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (ProblemGrpc.class) {
+      synchronized (ProblemServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new ProblemFileDescriptorSupplier())
+              .setSchemaDescriptor(new ProblemServiceFileDescriptorSupplier())
               .addMethod(getGetProblemMethod())
               .build();
         }
