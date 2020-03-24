@@ -2,56 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ab39078-4aa6-4772-8912-0becf5b32101" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$MethodHandlers.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$ProblemBaseDescriptorSupplier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$ProblemBlockingStub.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$ProblemFileDescriptorSupplier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$ProblemFutureStub.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$ProblemImplBase.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$ProblemMethodDescriptorSupplier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc$ProblemStub.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemGrpc.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemProto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemReply$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemReply$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemReply.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemReplyOrBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemRequest$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemRequest$Builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/cn/yaminets/grpclib/ProblemRequestOrBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/grpc-java/cn/yaminets/grpclib/ProblemServiceGrpc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/AnswerEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/AnswerEntityOrBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemEntityOrBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ResultMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ResultMessageOrBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protos/problem.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/problem.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/grpc-java/cn/yaminets/grpclib/ProblemGrpc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemProto.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemProto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemReply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemReplyOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemReplyOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/protobuf/java/cn/yaminets/grpclib/ProblemRequestOrBuilder.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +21,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -135,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584804771906</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="更新">
+      <created>1584841726145</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584841726145</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
