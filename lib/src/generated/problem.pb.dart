@@ -96,6 +96,7 @@ class ProblemReply extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ProblemReply', package: const $pb.PackageName('problem'), createEmptyInstance: create)
     ..aOM<ResultMessage>(1, 'resultMessage', protoName: 'resultMessage', subBuilder: ResultMessage.create)
     ..pc<ProblemEntity>(2, 'problemList', $pb.PbFieldType.PM, protoName: 'problemList', subBuilder: ProblemEntity.create)
+    ..a<$core.int>(3, 'pageSize', $pb.PbFieldType.O3, protoName: 'pageSize')
     ..hasRequiredFields = false
   ;
 
@@ -127,6 +128,15 @@ class ProblemReply extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(2)
   $core.List<ProblemEntity> get problemList => $_getList(1);
+
+  @$pb.TagNumber(3)
+  $core.int get pageSize => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set pageSize($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPageSize() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPageSize() => clearField(3);
 }
 
 class ProblemEntity extends $pb.GeneratedMessage {
@@ -135,7 +145,9 @@ class ProblemEntity extends $pb.GeneratedMessage {
     ..aOS(2, 'pid')
     ..aOS(3, 'title')
     ..aOS(4, 'content')
-    ..pc<AnswerEntity>(5, 'answers', $pb.PbFieldType.PM, subBuilder: AnswerEntity.create)
+    ..pc<Tags>(5, 'tags', $pb.PbFieldType.PM, subBuilder: Tags.create)
+    ..pc<AnswerEntity>(6, 'answers', $pb.PbFieldType.PM, subBuilder: AnswerEntity.create)
+    ..aOM<Difficulty>(7, 'difficulty', subBuilder: Difficulty.create)
     ..hasRequiredFields = false
   ;
 
@@ -191,13 +203,119 @@ class ProblemEntity extends $pb.GeneratedMessage {
   void clearContent() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.List<AnswerEntity> get answers => $_getList(4);
+  $core.List<Tags> get tags => $_getList(4);
+
+  @$pb.TagNumber(6)
+  $core.List<AnswerEntity> get answers => $_getList(5);
+
+  @$pb.TagNumber(7)
+  Difficulty get difficulty => $_getN(6);
+  @$pb.TagNumber(7)
+  set difficulty(Difficulty v) { setField(7, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasDifficulty() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearDifficulty() => clearField(7);
+  @$pb.TagNumber(7)
+  Difficulty ensureDifficulty() => $_ensure(6);
+}
+
+class Difficulty extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Difficulty', package: const $pb.PackageName('problem'), createEmptyInstance: create)
+    ..aInt64(1, 'id')
+    ..aOS(2, 'difficultyString', protoName: 'difficultyString')
+    ..hasRequiredFields = false
+  ;
+
+  Difficulty._() : super();
+  factory Difficulty() => create();
+  factory Difficulty.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Difficulty.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  Difficulty clone() => Difficulty()..mergeFromMessage(this);
+  Difficulty copyWith(void Function(Difficulty) updates) => super.copyWith((message) => updates(message as Difficulty));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Difficulty create() => Difficulty._();
+  Difficulty createEmptyInstance() => create();
+  static $pb.PbList<Difficulty> createRepeated() => $pb.PbList<Difficulty>();
+  @$core.pragma('dart2js:noInline')
+  static Difficulty getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Difficulty>(create);
+  static Difficulty _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get id => $_getI64(0);
+  @$pb.TagNumber(1)
+  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get difficultyString => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set difficultyString($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDifficultyString() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDifficultyString() => clearField(2);
+}
+
+class Tags extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Tags', package: const $pb.PackageName('problem'), createEmptyInstance: create)
+    ..aInt64(1, 'id')
+    ..a<$core.int>(2, 'tagInt', $pb.PbFieldType.O3, protoName: 'tagInt')
+    ..aOS(3, 'tagString', protoName: 'tagString')
+    ..hasRequiredFields = false
+  ;
+
+  Tags._() : super();
+  factory Tags() => create();
+  factory Tags.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Tags.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  Tags clone() => Tags()..mergeFromMessage(this);
+  Tags copyWith(void Function(Tags) updates) => super.copyWith((message) => updates(message as Tags));
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Tags create() => Tags._();
+  Tags createEmptyInstance() => create();
+  static $pb.PbList<Tags> createRepeated() => $pb.PbList<Tags>();
+  @$core.pragma('dart2js:noInline')
+  static Tags getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Tags>(create);
+  static Tags _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get id => $_getI64(0);
+  @$pb.TagNumber(1)
+  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get tagInt => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set tagInt($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasTagInt() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTagInt() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get tagString => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set tagString($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasTagString() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTagString() => clearField(3);
 }
 
 class AnswerEntity extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('AnswerEntity', package: const $pb.PackageName('problem'), createEmptyInstance: create)
     ..aInt64(1, 'id')
-    ..aOS(2, 'answerString', protoName: 'answerString')
+    ..aOS(3, 'answerString', protoName: 'answerString')
     ..hasRequiredFields = false
   ;
 
@@ -225,13 +343,13 @@ class AnswerEntity extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
 
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   $core.String get answerString => $_getSZ(1);
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   set answerString($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   $core.bool hasAnswerString() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearAnswerString() => clearField(2);
+  @$pb.TagNumber(3)
+  void clearAnswerString() => clearField(3);
 }
 

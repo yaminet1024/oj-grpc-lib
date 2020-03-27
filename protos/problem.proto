@@ -25,6 +25,7 @@ message ResultMessage{
 message ProblemReply{
     ResultMessage resultMessage = 1;
     repeated ProblemEntity problemList = 2;
+    int32 pageSize = 3;
 }
 
 message ProblemEntity{
@@ -32,10 +33,23 @@ message ProblemEntity{
     string pid = 2;
     string title = 3;
     string content = 4;
-    repeated AnswerEntity answers = 5;
+    repeated Tags tags = 5;
+    repeated AnswerEntity answers = 6;
+    Difficulty difficulty = 7;
+}
+
+message Difficulty{
+    int64 id = 1;
+    string difficultyString = 2;
+}
+
+message Tags{
+    int64 id = 1;
+    int32 tagInt  = 2;
+    string tagString = 3;
 }
 
 message AnswerEntity{
     int64 id = 1;
-    string answerString = 2;
+    string answerString = 3;
 }

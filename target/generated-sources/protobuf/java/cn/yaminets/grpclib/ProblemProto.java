@@ -35,6 +35,16 @@ public final class ProblemProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_problem_ProblemEntity_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_problem_Difficulty_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_problem_Difficulty_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_problem_Tags_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_problem_Tags_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_problem_AnswerEntity_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -51,17 +61,22 @@ public final class ProblemProto {
       "\n\rproblem.proto\022\007problem\"-\n\016ProblemReque" +
       "st\022\014\n\004page\030\001 \001(\005\022\r\n\005limit\030\002 \001(\005\"1\n\rResul" +
       "tMessage\022\017\n\007errCode\030\001 \001(\005\022\017\n\007message\030\002 \001" +
-      "(\t\"j\n\014ProblemReply\022-\n\rresultMessage\030\001 \001(" +
+      "(\t\"|\n\014ProblemReply\022-\n\rresultMessage\030\001 \001(" +
       "\0132\026.problem.ResultMessage\022+\n\013problemList" +
-      "\030\002 \003(\0132\026.problem.ProblemEntity\"p\n\rProble" +
-      "mEntity\022\n\n\002id\030\001 \001(\003\022\013\n\003pid\030\002 \001(\t\022\r\n\005titl" +
-      "e\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022&\n\007answers\030\005 \003(" +
-      "\0132\025.problem.AnswerEntity\"0\n\014AnswerEntity" +
-      "\022\n\n\002id\030\001 \001(\003\022\024\n\014answerString\030\002 \001(\t2P\n\016Pr" +
-      "oblemService\022>\n\nGetProblem\022\027.problem.Pro" +
-      "blemRequest\032\025.problem.ProblemReply\"\000B,\n\023" +
-      "cn.yaminets.grpclibB\014ProblemProtoP\001\242\002\004ya" +
-      "mib\006proto3"
+      "\030\002 \003(\0132\026.problem.ProblemEntity\022\020\n\010pageSi" +
+      "ze\030\003 \001(\005\"\266\001\n\rProblemEntity\022\n\n\002id\030\001 \001(\003\022\013" +
+      "\n\003pid\030\002 \001(\t\022\r\n\005title\030\003 \001(\t\022\017\n\007content\030\004 " +
+      "\001(\t\022\033\n\004tags\030\005 \003(\0132\r.problem.Tags\022&\n\007answ" +
+      "ers\030\006 \003(\0132\025.problem.AnswerEntity\022\'\n\ndiff" +
+      "iculty\030\007 \001(\0132\023.problem.Difficulty\"2\n\nDif" +
+      "ficulty\022\n\n\002id\030\001 \001(\003\022\030\n\020difficultyString\030" +
+      "\002 \001(\t\"5\n\004Tags\022\n\n\002id\030\001 \001(\003\022\016\n\006tagInt\030\002 \001(" +
+      "\005\022\021\n\ttagString\030\003 \001(\t\"0\n\014AnswerEntity\022\n\n\002" +
+      "id\030\001 \001(\003\022\024\n\014answerString\030\003 \001(\t2P\n\016Proble" +
+      "mService\022>\n\nGetProblem\022\027.problem.Problem" +
+      "Request\032\025.problem.ProblemReply\"\000B,\n\023cn.y" +
+      "aminets.grpclibB\014ProblemProtoP\001\242\002\004yamib\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -84,15 +99,27 @@ public final class ProblemProto {
     internal_static_problem_ProblemReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_problem_ProblemReply_descriptor,
-        new java.lang.String[] { "ResultMessage", "ProblemList", });
+        new java.lang.String[] { "ResultMessage", "ProblemList", "PageSize", });
     internal_static_problem_ProblemEntity_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_problem_ProblemEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_problem_ProblemEntity_descriptor,
-        new java.lang.String[] { "Id", "Pid", "Title", "Content", "Answers", });
-    internal_static_problem_AnswerEntity_descriptor =
+        new java.lang.String[] { "Id", "Pid", "Title", "Content", "Tags", "Answers", "Difficulty", });
+    internal_static_problem_Difficulty_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_problem_Difficulty_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_problem_Difficulty_descriptor,
+        new java.lang.String[] { "Id", "DifficultyString", });
+    internal_static_problem_Tags_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_problem_Tags_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_problem_Tags_descriptor,
+        new java.lang.String[] { "Id", "TagInt", "TagString", });
+    internal_static_problem_AnswerEntity_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_problem_AnswerEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_problem_AnswerEntity_descriptor,

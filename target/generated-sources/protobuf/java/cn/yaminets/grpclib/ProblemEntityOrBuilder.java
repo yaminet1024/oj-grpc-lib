@@ -50,26 +50,65 @@ public interface ProblemEntityOrBuilder extends
       getContentBytes();
 
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  java.util.List<cn.yaminets.grpclib.Tags> 
+      getTagsList();
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  cn.yaminets.grpclib.Tags getTags(int index);
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  int getTagsCount();
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  java.util.List<? extends cn.yaminets.grpclib.TagsOrBuilder> 
+      getTagsOrBuilderList();
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  cn.yaminets.grpclib.TagsOrBuilder getTagsOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   java.util.List<cn.yaminets.grpclib.AnswerEntity> 
       getAnswersList();
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   cn.yaminets.grpclib.AnswerEntity getAnswers(int index);
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   int getAnswersCount();
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   java.util.List<? extends cn.yaminets.grpclib.AnswerEntityOrBuilder> 
       getAnswersOrBuilderList();
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   cn.yaminets.grpclib.AnswerEntityOrBuilder getAnswersOrBuilder(
       int index);
+
+  /**
+   * <code>.problem.Difficulty difficulty = 7;</code>
+   * @return Whether the difficulty field is set.
+   */
+  boolean hasDifficulty();
+  /**
+   * <code>.problem.Difficulty difficulty = 7;</code>
+   * @return The difficulty.
+   */
+  cn.yaminets.grpclib.Difficulty getDifficulty();
+  /**
+   * <code>.problem.Difficulty difficulty = 7;</code>
+   */
+  cn.yaminets.grpclib.DifficultyOrBuilder getDifficultyOrBuilder();
 }

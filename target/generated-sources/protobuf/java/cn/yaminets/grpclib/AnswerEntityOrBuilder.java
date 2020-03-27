@@ -14,12 +14,12 @@ public interface AnswerEntityOrBuilder extends
   long getId();
 
   /**
-   * <code>string answerString = 2;</code>
+   * <code>string answerString = 3;</code>
    * @return The answerString.
    */
   java.lang.String getAnswerString();
   /**
-   * <code>string answerString = 2;</code>
+   * <code>string answerString = 3;</code>
    * @return The bytes for answerString.
    */
   com.google.protobuf.ByteString

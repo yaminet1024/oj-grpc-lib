@@ -4,26 +4,26 @@
 package cn.yaminets.grpclib;
 
 /**
- * Protobuf type {@code problem.AnswerEntity}
+ * Protobuf type {@code problem.Difficulty}
  */
-public  final class AnswerEntity extends
+public  final class Difficulty extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:problem.AnswerEntity)
-    AnswerEntityOrBuilder {
+    // @@protoc_insertion_point(message_implements:problem.Difficulty)
+    DifficultyOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AnswerEntity.newBuilder() to construct.
-  private AnswerEntity(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use Difficulty.newBuilder() to construct.
+  private Difficulty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AnswerEntity() {
-    answerString_ = "";
+  private Difficulty() {
+    difficultyString_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new AnswerEntity();
+    return new Difficulty();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnswerEntity(
+  private Difficulty(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -54,10 +54,10 @@ private static final long serialVersionUID = 0L;
             id_ = input.readInt64();
             break;
           }
-          case 26: {
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            answerString_ = s;
+            difficultyString_ = s;
             break;
           }
           default: {
@@ -81,15 +81,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_AnswerEntity_descriptor;
+    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_Difficulty_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_AnswerEntity_fieldAccessorTable
+    return cn.yaminets.grpclib.ProblemProto.internal_static_problem_Difficulty_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            cn.yaminets.grpclib.AnswerEntity.class, cn.yaminets.grpclib.AnswerEntity.Builder.class);
+            cn.yaminets.grpclib.Difficulty.class, cn.yaminets.grpclib.Difficulty.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -102,36 +102,36 @@ private static final long serialVersionUID = 0L;
     return id_;
   }
 
-  public static final int ANSWERSTRING_FIELD_NUMBER = 3;
-  private volatile java.lang.Object answerString_;
+  public static final int DIFFICULTYSTRING_FIELD_NUMBER = 2;
+  private volatile java.lang.Object difficultyString_;
   /**
-   * <code>string answerString = 3;</code>
-   * @return The answerString.
+   * <code>string difficultyString = 2;</code>
+   * @return The difficultyString.
    */
-  public java.lang.String getAnswerString() {
-    java.lang.Object ref = answerString_;
+  public java.lang.String getDifficultyString() {
+    java.lang.Object ref = difficultyString_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      answerString_ = s;
+      difficultyString_ = s;
       return s;
     }
   }
   /**
-   * <code>string answerString = 3;</code>
-   * @return The bytes for answerString.
+   * <code>string difficultyString = 2;</code>
+   * @return The bytes for difficultyString.
    */
   public com.google.protobuf.ByteString
-      getAnswerStringBytes() {
-    java.lang.Object ref = answerString_;
+      getDifficultyStringBytes() {
+    java.lang.Object ref = difficultyString_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      answerString_ = b;
+      difficultyString_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -155,8 +155,8 @@ private static final long serialVersionUID = 0L;
     if (id_ != 0L) {
       output.writeInt64(1, id_);
     }
-    if (!getAnswerStringBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, answerString_);
+    if (!getDifficultyStringBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, difficultyString_);
     }
     unknownFields.writeTo(output);
   }
@@ -171,8 +171,8 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, id_);
     }
-    if (!getAnswerStringBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, answerString_);
+    if (!getDifficultyStringBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, difficultyString_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -184,15 +184,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof cn.yaminets.grpclib.AnswerEntity)) {
+    if (!(obj instanceof cn.yaminets.grpclib.Difficulty)) {
       return super.equals(obj);
     }
-    cn.yaminets.grpclib.AnswerEntity other = (cn.yaminets.grpclib.AnswerEntity) obj;
+    cn.yaminets.grpclib.Difficulty other = (cn.yaminets.grpclib.Difficulty) obj;
 
     if (getId()
         != other.getId()) return false;
-    if (!getAnswerString()
-        .equals(other.getAnswerString())) return false;
+    if (!getDifficultyString()
+        .equals(other.getDifficultyString())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -207,76 +207,76 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getId());
-    hash = (37 * hash) + ANSWERSTRING_FIELD_NUMBER;
-    hash = (53 * hash) + getAnswerString().hashCode();
+    hash = (37 * hash) + DIFFICULTYSTRING_FIELD_NUMBER;
+    hash = (53 * hash) + getDifficultyString().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(byte[] data)
+  public static cn.yaminets.grpclib.Difficulty parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(java.io.InputStream input)
+  public static cn.yaminets.grpclib.Difficulty parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseDelimitedFrom(java.io.InputStream input)
+  public static cn.yaminets.grpclib.Difficulty parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseDelimitedFrom(
+  public static cn.yaminets.grpclib.Difficulty parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static cn.yaminets.grpclib.AnswerEntity parseFrom(
+  public static cn.yaminets.grpclib.Difficulty parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -289,7 +289,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(cn.yaminets.grpclib.AnswerEntity prototype) {
+  public static Builder newBuilder(cn.yaminets.grpclib.Difficulty prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -305,26 +305,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code problem.AnswerEntity}
+   * Protobuf type {@code problem.Difficulty}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:problem.AnswerEntity)
-      cn.yaminets.grpclib.AnswerEntityOrBuilder {
+      // @@protoc_insertion_point(builder_implements:problem.Difficulty)
+      cn.yaminets.grpclib.DifficultyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_AnswerEntity_descriptor;
+      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_Difficulty_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_AnswerEntity_fieldAccessorTable
+      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_Difficulty_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              cn.yaminets.grpclib.AnswerEntity.class, cn.yaminets.grpclib.AnswerEntity.Builder.class);
+              cn.yaminets.grpclib.Difficulty.class, cn.yaminets.grpclib.Difficulty.Builder.class);
     }
 
-    // Construct using cn.yaminets.grpclib.AnswerEntity.newBuilder()
+    // Construct using cn.yaminets.grpclib.Difficulty.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -344,7 +344,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = 0L;
 
-      answerString_ = "";
+      difficultyString_ = "";
 
       return this;
     }
@@ -352,17 +352,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_AnswerEntity_descriptor;
+      return cn.yaminets.grpclib.ProblemProto.internal_static_problem_Difficulty_descriptor;
     }
 
     @java.lang.Override
-    public cn.yaminets.grpclib.AnswerEntity getDefaultInstanceForType() {
-      return cn.yaminets.grpclib.AnswerEntity.getDefaultInstance();
+    public cn.yaminets.grpclib.Difficulty getDefaultInstanceForType() {
+      return cn.yaminets.grpclib.Difficulty.getDefaultInstance();
     }
 
     @java.lang.Override
-    public cn.yaminets.grpclib.AnswerEntity build() {
-      cn.yaminets.grpclib.AnswerEntity result = buildPartial();
+    public cn.yaminets.grpclib.Difficulty build() {
+      cn.yaminets.grpclib.Difficulty result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -370,10 +370,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public cn.yaminets.grpclib.AnswerEntity buildPartial() {
-      cn.yaminets.grpclib.AnswerEntity result = new cn.yaminets.grpclib.AnswerEntity(this);
+    public cn.yaminets.grpclib.Difficulty buildPartial() {
+      cn.yaminets.grpclib.Difficulty result = new cn.yaminets.grpclib.Difficulty(this);
       result.id_ = id_;
-      result.answerString_ = answerString_;
+      result.difficultyString_ = difficultyString_;
       onBuilt();
       return result;
     }
@@ -412,21 +412,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof cn.yaminets.grpclib.AnswerEntity) {
-        return mergeFrom((cn.yaminets.grpclib.AnswerEntity)other);
+      if (other instanceof cn.yaminets.grpclib.Difficulty) {
+        return mergeFrom((cn.yaminets.grpclib.Difficulty)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(cn.yaminets.grpclib.AnswerEntity other) {
-      if (other == cn.yaminets.grpclib.AnswerEntity.getDefaultInstance()) return this;
+    public Builder mergeFrom(cn.yaminets.grpclib.Difficulty other) {
+      if (other == cn.yaminets.grpclib.Difficulty.getDefaultInstance()) return this;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
-      if (!other.getAnswerString().isEmpty()) {
-        answerString_ = other.answerString_;
+      if (!other.getDifficultyString().isEmpty()) {
+        difficultyString_ = other.difficultyString_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -444,11 +444,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      cn.yaminets.grpclib.AnswerEntity parsedMessage = null;
+      cn.yaminets.grpclib.Difficulty parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (cn.yaminets.grpclib.AnswerEntity) e.getUnfinishedMessage();
+        parsedMessage = (cn.yaminets.grpclib.Difficulty) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -488,78 +488,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object answerString_ = "";
+    private java.lang.Object difficultyString_ = "";
     /**
-     * <code>string answerString = 3;</code>
-     * @return The answerString.
+     * <code>string difficultyString = 2;</code>
+     * @return The difficultyString.
      */
-    public java.lang.String getAnswerString() {
-      java.lang.Object ref = answerString_;
+    public java.lang.String getDifficultyString() {
+      java.lang.Object ref = difficultyString_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        answerString_ = s;
+        difficultyString_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string answerString = 3;</code>
-     * @return The bytes for answerString.
+     * <code>string difficultyString = 2;</code>
+     * @return The bytes for difficultyString.
      */
     public com.google.protobuf.ByteString
-        getAnswerStringBytes() {
-      java.lang.Object ref = answerString_;
+        getDifficultyStringBytes() {
+      java.lang.Object ref = difficultyString_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        answerString_ = b;
+        difficultyString_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string answerString = 3;</code>
-     * @param value The answerString to set.
+     * <code>string difficultyString = 2;</code>
+     * @param value The difficultyString to set.
      * @return This builder for chaining.
      */
-    public Builder setAnswerString(
+    public Builder setDifficultyString(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      answerString_ = value;
+      difficultyString_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string answerString = 3;</code>
+     * <code>string difficultyString = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearAnswerString() {
+    public Builder clearDifficultyString() {
       
-      answerString_ = getDefaultInstance().getAnswerString();
+      difficultyString_ = getDefaultInstance().getDifficultyString();
       onChanged();
       return this;
     }
     /**
-     * <code>string answerString = 3;</code>
-     * @param value The bytes for answerString to set.
+     * <code>string difficultyString = 2;</code>
+     * @param value The bytes for difficultyString to set.
      * @return This builder for chaining.
      */
-    public Builder setAnswerStringBytes(
+    public Builder setDifficultyStringBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      answerString_ = value;
+      difficultyString_ = value;
       onChanged();
       return this;
     }
@@ -576,41 +576,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:problem.AnswerEntity)
+    // @@protoc_insertion_point(builder_scope:problem.Difficulty)
   }
 
-  // @@protoc_insertion_point(class_scope:problem.AnswerEntity)
-  private static final cn.yaminets.grpclib.AnswerEntity DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:problem.Difficulty)
+  private static final cn.yaminets.grpclib.Difficulty DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new cn.yaminets.grpclib.AnswerEntity();
+    DEFAULT_INSTANCE = new cn.yaminets.grpclib.Difficulty();
   }
 
-  public static cn.yaminets.grpclib.AnswerEntity getDefaultInstance() {
+  public static cn.yaminets.grpclib.Difficulty getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AnswerEntity>
-      PARSER = new com.google.protobuf.AbstractParser<AnswerEntity>() {
+  private static final com.google.protobuf.Parser<Difficulty>
+      PARSER = new com.google.protobuf.AbstractParser<Difficulty>() {
     @java.lang.Override
-    public AnswerEntity parsePartialFrom(
+    public Difficulty parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnswerEntity(input, extensionRegistry);
+      return new Difficulty(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<AnswerEntity> parser() {
+  public static com.google.protobuf.Parser<Difficulty> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AnswerEntity> getParserForType() {
+  public com.google.protobuf.Parser<Difficulty> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public cn.yaminets.grpclib.AnswerEntity getDefaultInstanceForType() {
+  public cn.yaminets.grpclib.Difficulty getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

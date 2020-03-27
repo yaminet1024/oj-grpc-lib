@@ -45,4 +45,10 @@ public interface ProblemReplyOrBuilder extends
    */
   cn.yaminets.grpclib.ProblemEntityOrBuilder getProblemListOrBuilder(
       int index);
+
+  /**
+   * <code>int32 pageSize = 3;</code>
+   * @return The pageSize.
+   */
+  int getPageSize();
 }

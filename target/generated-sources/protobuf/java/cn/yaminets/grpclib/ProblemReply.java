@@ -72,6 +72,11 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(cn.yaminets.grpclib.ProblemEntity.parser(), extensionRegistry));
             break;
           }
+          case 24: {
+
+            pageSize_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -165,6 +170,16 @@ private static final long serialVersionUID = 0L;
     return problemList_.get(index);
   }
 
+  public static final int PAGESIZE_FIELD_NUMBER = 3;
+  private int pageSize_;
+  /**
+   * <code>int32 pageSize = 3;</code>
+   * @return The pageSize.
+   */
+  public int getPageSize() {
+    return pageSize_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -185,6 +200,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < problemList_.size(); i++) {
       output.writeMessage(2, problemList_.get(i));
     }
+    if (pageSize_ != 0) {
+      output.writeInt32(3, pageSize_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -201,6 +219,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < problemList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, problemList_.get(i));
+    }
+    if (pageSize_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, pageSize_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -224,6 +246,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getProblemListList()
         .equals(other.getProblemListList())) return false;
+    if (getPageSize()
+        != other.getPageSize()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -243,6 +267,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROBLEMLIST_FIELD_NUMBER;
       hash = (53 * hash) + getProblemListList().hashCode();
     }
+    hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+    hash = (53 * hash) + getPageSize();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -389,6 +415,8 @@ private static final long serialVersionUID = 0L;
       } else {
         problemListBuilder_.clear();
       }
+      pageSize_ = 0;
+
       return this;
     }
 
@@ -430,6 +458,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.problemList_ = problemListBuilder_.build();
       }
+      result.pageSize_ = pageSize_;
       onBuilt();
       return result;
     }
@@ -506,6 +535,9 @@ private static final long serialVersionUID = 0L;
             problemListBuilder_.addAllMessages(other.problemList_);
           }
         }
+      }
+      if (other.getPageSize() != 0) {
+        setPageSize(other.getPageSize());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -894,6 +926,36 @@ private static final long serialVersionUID = 0L;
         problemList_ = null;
       }
       return problemListBuilder_;
+    }
+
+    private int pageSize_ ;
+    /**
+     * <code>int32 pageSize = 3;</code>
+     * @return The pageSize.
+     */
+    public int getPageSize() {
+      return pageSize_;
+    }
+    /**
+     * <code>int32 pageSize = 3;</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageSize(int value) {
+      
+      pageSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 pageSize = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageSize() {
+      
+      pageSize_ = 0;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

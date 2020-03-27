@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     pid_ = "";
     title_ = "";
     content_ = "";
+    tags_ = java.util.Collections.emptyList();
     answers_ = java.util.Collections.emptyList();
   }
 
@@ -78,11 +79,33 @@ private static final long serialVersionUID = 0L;
           }
           case 42: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              answers_ = new java.util.ArrayList<cn.yaminets.grpclib.AnswerEntity>();
+              tags_ = new java.util.ArrayList<cn.yaminets.grpclib.Tags>();
               mutable_bitField0_ |= 0x00000001;
+            }
+            tags_.add(
+                input.readMessage(cn.yaminets.grpclib.Tags.parser(), extensionRegistry));
+            break;
+          }
+          case 50: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              answers_ = new java.util.ArrayList<cn.yaminets.grpclib.AnswerEntity>();
+              mutable_bitField0_ |= 0x00000002;
             }
             answers_.add(
                 input.readMessage(cn.yaminets.grpclib.AnswerEntity.parser(), extensionRegistry));
+            break;
+          }
+          case 58: {
+            cn.yaminets.grpclib.Difficulty.Builder subBuilder = null;
+            if (difficulty_ != null) {
+              subBuilder = difficulty_.toBuilder();
+            }
+            difficulty_ = input.readMessage(cn.yaminets.grpclib.Difficulty.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(difficulty_);
+              difficulty_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -101,6 +124,9 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        tags_ = java.util.Collections.unmodifiableList(tags_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
         answers_ = java.util.Collections.unmodifiableList(answers_);
       }
       this.unknownFields = unknownFields.build();
@@ -238,39 +264,97 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ANSWERS_FIELD_NUMBER = 5;
+  public static final int TAGS_FIELD_NUMBER = 5;
+  private java.util.List<cn.yaminets.grpclib.Tags> tags_;
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  public java.util.List<cn.yaminets.grpclib.Tags> getTagsList() {
+    return tags_;
+  }
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  public java.util.List<? extends cn.yaminets.grpclib.TagsOrBuilder> 
+      getTagsOrBuilderList() {
+    return tags_;
+  }
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  public int getTagsCount() {
+    return tags_.size();
+  }
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  public cn.yaminets.grpclib.Tags getTags(int index) {
+    return tags_.get(index);
+  }
+  /**
+   * <code>repeated .problem.Tags tags = 5;</code>
+   */
+  public cn.yaminets.grpclib.TagsOrBuilder getTagsOrBuilder(
+      int index) {
+    return tags_.get(index);
+  }
+
+  public static final int ANSWERS_FIELD_NUMBER = 6;
   private java.util.List<cn.yaminets.grpclib.AnswerEntity> answers_;
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   public java.util.List<cn.yaminets.grpclib.AnswerEntity> getAnswersList() {
     return answers_;
   }
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   public java.util.List<? extends cn.yaminets.grpclib.AnswerEntityOrBuilder> 
       getAnswersOrBuilderList() {
     return answers_;
   }
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   public int getAnswersCount() {
     return answers_.size();
   }
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   public cn.yaminets.grpclib.AnswerEntity getAnswers(int index) {
     return answers_.get(index);
   }
   /**
-   * <code>repeated .problem.AnswerEntity answers = 5;</code>
+   * <code>repeated .problem.AnswerEntity answers = 6;</code>
    */
   public cn.yaminets.grpclib.AnswerEntityOrBuilder getAnswersOrBuilder(
       int index) {
     return answers_.get(index);
+  }
+
+  public static final int DIFFICULTY_FIELD_NUMBER = 7;
+  private cn.yaminets.grpclib.Difficulty difficulty_;
+  /**
+   * <code>.problem.Difficulty difficulty = 7;</code>
+   * @return Whether the difficulty field is set.
+   */
+  public boolean hasDifficulty() {
+    return difficulty_ != null;
+  }
+  /**
+   * <code>.problem.Difficulty difficulty = 7;</code>
+   * @return The difficulty.
+   */
+  public cn.yaminets.grpclib.Difficulty getDifficulty() {
+    return difficulty_ == null ? cn.yaminets.grpclib.Difficulty.getDefaultInstance() : difficulty_;
+  }
+  /**
+   * <code>.problem.Difficulty difficulty = 7;</code>
+   */
+  public cn.yaminets.grpclib.DifficultyOrBuilder getDifficultyOrBuilder() {
+    return getDifficulty();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -299,8 +383,14 @@ private static final long serialVersionUID = 0L;
     if (!getContentBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, content_);
     }
+    for (int i = 0; i < tags_.size(); i++) {
+      output.writeMessage(5, tags_.get(i));
+    }
     for (int i = 0; i < answers_.size(); i++) {
-      output.writeMessage(5, answers_.get(i));
+      output.writeMessage(6, answers_.get(i));
+    }
+    if (difficulty_ != null) {
+      output.writeMessage(7, getDifficulty());
     }
     unknownFields.writeTo(output);
   }
@@ -324,9 +414,17 @@ private static final long serialVersionUID = 0L;
     if (!getContentBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, content_);
     }
+    for (int i = 0; i < tags_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, tags_.get(i));
+    }
     for (int i = 0; i < answers_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, answers_.get(i));
+        .computeMessageSize(6, answers_.get(i));
+    }
+    if (difficulty_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getDifficulty());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -351,8 +449,15 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTitle())) return false;
     if (!getContent()
         .equals(other.getContent())) return false;
+    if (!getTagsList()
+        .equals(other.getTagsList())) return false;
     if (!getAnswersList()
         .equals(other.getAnswersList())) return false;
+    if (hasDifficulty() != other.hasDifficulty()) return false;
+    if (hasDifficulty()) {
+      if (!getDifficulty()
+          .equals(other.getDifficulty())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -373,9 +478,17 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTitle().hashCode();
     hash = (37 * hash) + CONTENT_FIELD_NUMBER;
     hash = (53 * hash) + getContent().hashCode();
+    if (getTagsCount() > 0) {
+      hash = (37 * hash) + TAGS_FIELD_NUMBER;
+      hash = (53 * hash) + getTagsList().hashCode();
+    }
     if (getAnswersCount() > 0) {
       hash = (37 * hash) + ANSWERS_FIELD_NUMBER;
       hash = (53 * hash) + getAnswersList().hashCode();
+    }
+    if (hasDifficulty()) {
+      hash = (37 * hash) + DIFFICULTY_FIELD_NUMBER;
+      hash = (53 * hash) + getDifficulty().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -505,6 +618,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getTagsFieldBuilder();
         getAnswersFieldBuilder();
       }
     }
@@ -519,11 +633,23 @@ private static final long serialVersionUID = 0L;
 
       content_ = "";
 
-      if (answersBuilder_ == null) {
-        answers_ = java.util.Collections.emptyList();
+      if (tagsBuilder_ == null) {
+        tags_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        tagsBuilder_.clear();
+      }
+      if (answersBuilder_ == null) {
+        answers_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
         answersBuilder_.clear();
+      }
+      if (difficultyBuilder_ == null) {
+        difficulty_ = null;
+      } else {
+        difficulty_ = null;
+        difficultyBuilder_ = null;
       }
       return this;
     }
@@ -556,14 +682,28 @@ private static final long serialVersionUID = 0L;
       result.pid_ = pid_;
       result.title_ = title_;
       result.content_ = content_;
-      if (answersBuilder_ == null) {
+      if (tagsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          answers_ = java.util.Collections.unmodifiableList(answers_);
+          tags_ = java.util.Collections.unmodifiableList(tags_);
           bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tags_ = tags_;
+      } else {
+        result.tags_ = tagsBuilder_.build();
+      }
+      if (answersBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          answers_ = java.util.Collections.unmodifiableList(answers_);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.answers_ = answers_;
       } else {
         result.answers_ = answersBuilder_.build();
+      }
+      if (difficultyBuilder_ == null) {
+        result.difficulty_ = difficulty_;
+      } else {
+        result.difficulty_ = difficultyBuilder_.build();
       }
       onBuilt();
       return result;
@@ -628,11 +768,37 @@ private static final long serialVersionUID = 0L;
         content_ = other.content_;
         onChanged();
       }
+      if (tagsBuilder_ == null) {
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.tags_.isEmpty()) {
+          if (tagsBuilder_.isEmpty()) {
+            tagsBuilder_.dispose();
+            tagsBuilder_ = null;
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            tagsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getTagsFieldBuilder() : null;
+          } else {
+            tagsBuilder_.addAllMessages(other.tags_);
+          }
+        }
+      }
       if (answersBuilder_ == null) {
         if (!other.answers_.isEmpty()) {
           if (answers_.isEmpty()) {
             answers_ = other.answers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureAnswersIsMutable();
             answers_.addAll(other.answers_);
@@ -645,7 +811,7 @@ private static final long serialVersionUID = 0L;
             answersBuilder_.dispose();
             answersBuilder_ = null;
             answers_ = other.answers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             answersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAnswersFieldBuilder() : null;
@@ -653,6 +819,9 @@ private static final long serialVersionUID = 0L;
             answersBuilder_.addAllMessages(other.answers_);
           }
         }
+      }
+      if (other.hasDifficulty()) {
+        mergeDifficulty(other.getDifficulty());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -942,12 +1111,252 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.util.List<cn.yaminets.grpclib.Tags> tags_ =
+      java.util.Collections.emptyList();
+    private void ensureTagsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        tags_ = new java.util.ArrayList<cn.yaminets.grpclib.Tags>(tags_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cn.yaminets.grpclib.Tags, cn.yaminets.grpclib.Tags.Builder, cn.yaminets.grpclib.TagsOrBuilder> tagsBuilder_;
+
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public java.util.List<cn.yaminets.grpclib.Tags> getTagsList() {
+      if (tagsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(tags_);
+      } else {
+        return tagsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public int getTagsCount() {
+      if (tagsBuilder_ == null) {
+        return tags_.size();
+      } else {
+        return tagsBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public cn.yaminets.grpclib.Tags getTags(int index) {
+      if (tagsBuilder_ == null) {
+        return tags_.get(index);
+      } else {
+        return tagsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder setTags(
+        int index, cn.yaminets.grpclib.Tags value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.set(index, value);
+        onChanged();
+      } else {
+        tagsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder setTags(
+        int index, cn.yaminets.grpclib.Tags.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder addTags(cn.yaminets.grpclib.Tags value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder addTags(
+        int index, cn.yaminets.grpclib.Tags value) {
+      if (tagsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTagsIsMutable();
+        tags_.add(index, value);
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder addTags(
+        cn.yaminets.grpclib.Tags.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.add(builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder addTags(
+        int index, cn.yaminets.grpclib.Tags.Builder builderForValue) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        tagsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder addAllTags(
+        java.lang.Iterable<? extends cn.yaminets.grpclib.Tags> values) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        onChanged();
+      } else {
+        tagsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder clearTags() {
+      if (tagsBuilder_ == null) {
+        tags_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        tagsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public Builder removeTags(int index) {
+      if (tagsBuilder_ == null) {
+        ensureTagsIsMutable();
+        tags_.remove(index);
+        onChanged();
+      } else {
+        tagsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public cn.yaminets.grpclib.Tags.Builder getTagsBuilder(
+        int index) {
+      return getTagsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public cn.yaminets.grpclib.TagsOrBuilder getTagsOrBuilder(
+        int index) {
+      if (tagsBuilder_ == null) {
+        return tags_.get(index);  } else {
+        return tagsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public java.util.List<? extends cn.yaminets.grpclib.TagsOrBuilder> 
+         getTagsOrBuilderList() {
+      if (tagsBuilder_ != null) {
+        return tagsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(tags_);
+      }
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public cn.yaminets.grpclib.Tags.Builder addTagsBuilder() {
+      return getTagsFieldBuilder().addBuilder(
+          cn.yaminets.grpclib.Tags.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public cn.yaminets.grpclib.Tags.Builder addTagsBuilder(
+        int index) {
+      return getTagsFieldBuilder().addBuilder(
+          index, cn.yaminets.grpclib.Tags.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .problem.Tags tags = 5;</code>
+     */
+    public java.util.List<cn.yaminets.grpclib.Tags.Builder> 
+         getTagsBuilderList() {
+      return getTagsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        cn.yaminets.grpclib.Tags, cn.yaminets.grpclib.Tags.Builder, cn.yaminets.grpclib.TagsOrBuilder> 
+        getTagsFieldBuilder() {
+      if (tagsBuilder_ == null) {
+        tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            cn.yaminets.grpclib.Tags, cn.yaminets.grpclib.Tags.Builder, cn.yaminets.grpclib.TagsOrBuilder>(
+                tags_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        tags_ = null;
+      }
+      return tagsBuilder_;
+    }
+
     private java.util.List<cn.yaminets.grpclib.AnswerEntity> answers_ =
       java.util.Collections.emptyList();
     private void ensureAnswersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         answers_ = new java.util.ArrayList<cn.yaminets.grpclib.AnswerEntity>(answers_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -955,7 +1364,7 @@ private static final long serialVersionUID = 0L;
         cn.yaminets.grpclib.AnswerEntity, cn.yaminets.grpclib.AnswerEntity.Builder, cn.yaminets.grpclib.AnswerEntityOrBuilder> answersBuilder_;
 
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public java.util.List<cn.yaminets.grpclib.AnswerEntity> getAnswersList() {
       if (answersBuilder_ == null) {
@@ -965,7 +1374,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public int getAnswersCount() {
       if (answersBuilder_ == null) {
@@ -975,7 +1384,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public cn.yaminets.grpclib.AnswerEntity getAnswers(int index) {
       if (answersBuilder_ == null) {
@@ -985,7 +1394,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder setAnswers(
         int index, cn.yaminets.grpclib.AnswerEntity value) {
@@ -1002,7 +1411,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder setAnswers(
         int index, cn.yaminets.grpclib.AnswerEntity.Builder builderForValue) {
@@ -1016,7 +1425,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder addAnswers(cn.yaminets.grpclib.AnswerEntity value) {
       if (answersBuilder_ == null) {
@@ -1032,7 +1441,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder addAnswers(
         int index, cn.yaminets.grpclib.AnswerEntity value) {
@@ -1049,7 +1458,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder addAnswers(
         cn.yaminets.grpclib.AnswerEntity.Builder builderForValue) {
@@ -1063,7 +1472,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder addAnswers(
         int index, cn.yaminets.grpclib.AnswerEntity.Builder builderForValue) {
@@ -1077,7 +1486,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder addAllAnswers(
         java.lang.Iterable<? extends cn.yaminets.grpclib.AnswerEntity> values) {
@@ -1092,12 +1501,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder clearAnswers() {
       if (answersBuilder_ == null) {
         answers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         answersBuilder_.clear();
@@ -1105,7 +1514,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public Builder removeAnswers(int index) {
       if (answersBuilder_ == null) {
@@ -1118,14 +1527,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public cn.yaminets.grpclib.AnswerEntity.Builder getAnswersBuilder(
         int index) {
       return getAnswersFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public cn.yaminets.grpclib.AnswerEntityOrBuilder getAnswersOrBuilder(
         int index) {
@@ -1135,7 +1544,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public java.util.List<? extends cn.yaminets.grpclib.AnswerEntityOrBuilder> 
          getAnswersOrBuilderList() {
@@ -1146,14 +1555,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public cn.yaminets.grpclib.AnswerEntity.Builder addAnswersBuilder() {
       return getAnswersFieldBuilder().addBuilder(
           cn.yaminets.grpclib.AnswerEntity.getDefaultInstance());
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public cn.yaminets.grpclib.AnswerEntity.Builder addAnswersBuilder(
         int index) {
@@ -1161,7 +1570,7 @@ private static final long serialVersionUID = 0L;
           index, cn.yaminets.grpclib.AnswerEntity.getDefaultInstance());
     }
     /**
-     * <code>repeated .problem.AnswerEntity answers = 5;</code>
+     * <code>repeated .problem.AnswerEntity answers = 6;</code>
      */
     public java.util.List<cn.yaminets.grpclib.AnswerEntity.Builder> 
          getAnswersBuilderList() {
@@ -1174,12 +1583,131 @@ private static final long serialVersionUID = 0L;
         answersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             cn.yaminets.grpclib.AnswerEntity, cn.yaminets.grpclib.AnswerEntity.Builder, cn.yaminets.grpclib.AnswerEntityOrBuilder>(
                 answers_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         answers_ = null;
       }
       return answersBuilder_;
+    }
+
+    private cn.yaminets.grpclib.Difficulty difficulty_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cn.yaminets.grpclib.Difficulty, cn.yaminets.grpclib.Difficulty.Builder, cn.yaminets.grpclib.DifficultyOrBuilder> difficultyBuilder_;
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     * @return Whether the difficulty field is set.
+     */
+    public boolean hasDifficulty() {
+      return difficultyBuilder_ != null || difficulty_ != null;
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     * @return The difficulty.
+     */
+    public cn.yaminets.grpclib.Difficulty getDifficulty() {
+      if (difficultyBuilder_ == null) {
+        return difficulty_ == null ? cn.yaminets.grpclib.Difficulty.getDefaultInstance() : difficulty_;
+      } else {
+        return difficultyBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     */
+    public Builder setDifficulty(cn.yaminets.grpclib.Difficulty value) {
+      if (difficultyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        difficulty_ = value;
+        onChanged();
+      } else {
+        difficultyBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     */
+    public Builder setDifficulty(
+        cn.yaminets.grpclib.Difficulty.Builder builderForValue) {
+      if (difficultyBuilder_ == null) {
+        difficulty_ = builderForValue.build();
+        onChanged();
+      } else {
+        difficultyBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     */
+    public Builder mergeDifficulty(cn.yaminets.grpclib.Difficulty value) {
+      if (difficultyBuilder_ == null) {
+        if (difficulty_ != null) {
+          difficulty_ =
+            cn.yaminets.grpclib.Difficulty.newBuilder(difficulty_).mergeFrom(value).buildPartial();
+        } else {
+          difficulty_ = value;
+        }
+        onChanged();
+      } else {
+        difficultyBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     */
+    public Builder clearDifficulty() {
+      if (difficultyBuilder_ == null) {
+        difficulty_ = null;
+        onChanged();
+      } else {
+        difficulty_ = null;
+        difficultyBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     */
+    public cn.yaminets.grpclib.Difficulty.Builder getDifficultyBuilder() {
+      
+      onChanged();
+      return getDifficultyFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     */
+    public cn.yaminets.grpclib.DifficultyOrBuilder getDifficultyOrBuilder() {
+      if (difficultyBuilder_ != null) {
+        return difficultyBuilder_.getMessageOrBuilder();
+      } else {
+        return difficulty_ == null ?
+            cn.yaminets.grpclib.Difficulty.getDefaultInstance() : difficulty_;
+      }
+    }
+    /**
+     * <code>.problem.Difficulty difficulty = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        cn.yaminets.grpclib.Difficulty, cn.yaminets.grpclib.Difficulty.Builder, cn.yaminets.grpclib.DifficultyOrBuilder> 
+        getDifficultyFieldBuilder() {
+      if (difficultyBuilder_ == null) {
+        difficultyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            cn.yaminets.grpclib.Difficulty, cn.yaminets.grpclib.Difficulty.Builder, cn.yaminets.grpclib.DifficultyOrBuilder>(
+                getDifficulty(),
+                getParentForChildren(),
+                isClean());
+        difficulty_ = null;
+      }
+      return difficultyBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
