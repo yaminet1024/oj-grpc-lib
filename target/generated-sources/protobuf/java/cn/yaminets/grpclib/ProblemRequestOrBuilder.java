@@ -18,4 +18,16 @@ public interface ProblemRequestOrBuilder extends
    * @return The limit.
    */
   int getLimit();
+
+  /**
+   * <code>string content = 3;</code>
+   * @return The content.
+   */
+  java.lang.String getContent();
+  /**
+   * <code>string content = 3;</code>
+   * @return The bytes for content.
+   */
+  com.google.protobuf.ByteString
+      getContentBytes();
 }

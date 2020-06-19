@@ -5,6 +5,7 @@
 // @dart = 2.3
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
@@ -14,6 +15,7 @@ class ProblemRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('ProblemRequest', package: const $pb.PackageName('problem'), createEmptyInstance: create)
     ..a<$core.int>(1, 'page', $pb.PbFieldType.O3)
     ..a<$core.int>(2, 'limit', $pb.PbFieldType.O3)
+    ..aOS(3, 'content')
     ..hasRequiredFields = false
   ;
 
@@ -49,6 +51,15 @@ class ProblemRequest extends $pb.GeneratedMessage {
   $core.bool hasLimit() => $_has(1);
   @$pb.TagNumber(2)
   void clearLimit() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get content => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set content($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasContent() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearContent() => clearField(3);
 }
 
 class ResultMessage extends $pb.GeneratedMessage {
@@ -351,5 +362,15 @@ class AnswerEntity extends $pb.GeneratedMessage {
   $core.bool hasAnswerString() => $_has(1);
   @$pb.TagNumber(3)
   void clearAnswerString() => clearField(3);
+}
+
+class ProblemServiceApi {
+  $pb.RpcClient _client;
+  ProblemServiceApi(this._client);
+
+  $async.Future<ProblemReply> getProblem($pb.ClientContext ctx, ProblemRequest request) {
+    var emptyResponse = ProblemReply();
+    return _client.invoke<ProblemReply>(ctx, 'ProblemService', 'GetProblem', request, emptyResponse);
+  }
 }
 

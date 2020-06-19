@@ -10,6 +10,7 @@ const ProblemRequest$json = const {
   '2': const [
     const {'1': 'page', '3': 1, '4': 1, '5': 5, '10': 'page'},
     const {'1': 'limit', '3': 2, '4': 1, '5': 5, '10': 'limit'},
+    const {'1': 'content', '3': 3, '4': 1, '5': 9, '10': 'content'},
   ],
 };
 
@@ -66,5 +67,22 @@ const AnswerEntity$json = const {
     const {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
     const {'1': 'answerString', '3': 3, '4': 1, '5': 9, '10': 'answerString'},
   ],
+};
+
+const ProblemServiceBase$json = const {
+  '1': 'ProblemService',
+  '2': const [
+    const {'1': 'GetProblem', '2': '.problem.ProblemRequest', '3': '.problem.ProblemReply', '4': const {}},
+  ],
+};
+
+const ProblemServiceBase$messageJson = const {
+  '.problem.ProblemRequest': ProblemRequest$json,
+  '.problem.ProblemReply': ProblemReply$json,
+  '.problem.ResultMessage': ResultMessage$json,
+  '.problem.ProblemEntity': ProblemEntity$json,
+  '.problem.Tags': Tags$json,
+  '.problem.AnswerEntity': AnswerEntity$json,
+  '.problem.Difficulty': Difficulty$json,
 };
 

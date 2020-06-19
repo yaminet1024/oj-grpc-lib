@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ProblemRequest() {
+    content_ = "";
   }
 
   @java.lang.Override
@@ -56,6 +57,12 @@ private static final long serialVersionUID = 0L;
           case 16: {
 
             limit_ = input.readInt32();
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            content_ = s;
             break;
           }
           default: {
@@ -110,6 +117,42 @@ private static final long serialVersionUID = 0L;
     return limit_;
   }
 
+  public static final int CONTENT_FIELD_NUMBER = 3;
+  private volatile java.lang.Object content_;
+  /**
+   * <code>string content = 3;</code>
+   * @return The content.
+   */
+  public java.lang.String getContent() {
+    java.lang.Object ref = content_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      content_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string content = 3;</code>
+   * @return The bytes for content.
+   */
+  public com.google.protobuf.ByteString
+      getContentBytes() {
+    java.lang.Object ref = content_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      content_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -130,6 +173,9 @@ private static final long serialVersionUID = 0L;
     if (limit_ != 0) {
       output.writeInt32(2, limit_);
     }
+    if (!getContentBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -146,6 +192,9 @@ private static final long serialVersionUID = 0L;
     if (limit_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, limit_);
+    }
+    if (!getContentBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -166,6 +215,8 @@ private static final long serialVersionUID = 0L;
         != other.getPage()) return false;
     if (getLimit()
         != other.getLimit()) return false;
+    if (!getContent()
+        .equals(other.getContent())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -181,6 +232,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPage();
     hash = (37 * hash) + LIMIT_FIELD_NUMBER;
     hash = (53 * hash) + getLimit();
+    hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+    hash = (53 * hash) + getContent().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -318,6 +371,8 @@ private static final long serialVersionUID = 0L;
 
       limit_ = 0;
 
+      content_ = "";
+
       return this;
     }
 
@@ -346,6 +401,7 @@ private static final long serialVersionUID = 0L;
       cn.yaminets.grpclib.ProblemRequest result = new cn.yaminets.grpclib.ProblemRequest(this);
       result.page_ = page_;
       result.limit_ = limit_;
+      result.content_ = content_;
       onBuilt();
       return result;
     }
@@ -399,6 +455,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getLimit() != 0) {
         setLimit(other.getLimit());
+      }
+      if (!other.getContent().isEmpty()) {
+        content_ = other.content_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -485,6 +545,82 @@ private static final long serialVersionUID = 0L;
     public Builder clearLimit() {
       
       limit_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object content_ = "";
+    /**
+     * <code>string content = 3;</code>
+     * @return The content.
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @return The bytes for content.
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @param value The content to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContent(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      content_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearContent() {
+      
+      content_ = getDefaultInstance().getContent();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string content = 3;</code>
+     * @param value The bytes for content to set.
+     * @return This builder for chaining.
+     */
+    public Builder setContentBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      content_ = value;
       onChanged();
       return this;
     }
